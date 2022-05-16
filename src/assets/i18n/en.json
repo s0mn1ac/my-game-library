@@ -1,4 +1,9 @@
 {
+
+    "buttons": {
+        "addToList": "Add to list..."
+    },
+
     "board": {
         "title": "Boad"
     },
@@ -10,4 +15,5 @@
     "lists": {
         "title": "Lists"
     }
+    
 }

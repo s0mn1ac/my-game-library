@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { LibraryPage } from './library.page';
 import { LibraryPageRoutingModule } from './library-routing.module';
 import { TranslocoModule } from '@ngneat/transloco';
+import { ComponentsModule } from 'src/app/shared/modules/components.module';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { TranslocoModule } from '@ngneat/transloco';
     CommonModule,
     FormsModule,
     LibraryPageRoutingModule,
-    TranslocoModule
+    TranslocoModule,
+    ComponentsModule
   ],
   declarations: [LibraryPage]
 })

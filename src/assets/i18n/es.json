@@ -1,4 +1,9 @@
 {
+
+    "buttons": {
+        "addToList": "Añadir a la lista..."
+    },
+
     "board": {
         "title": "Tablón"
     },
@@ -10,4 +15,5 @@
     "lists": {
         "title": "Listas"
     }
+    
 }
