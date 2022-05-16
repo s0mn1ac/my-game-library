@@ -1,17 +1,17 @@
-<ion-tabs>
+<ion-tabs #footer (ionTabsDidChange)="updateFooterIcons($event.tab)">
 
   <ion-tab-bar slot="bottom">
 
     <ion-tab-button tab="board">
-      <ion-icon name="triangle"></ion-icon>
+      <ion-icon [name]="board"></ion-icon>
     </ion-tab-button>
 
     <ion-tab-button tab="library">
-      <ion-icon name="ellipse"></ion-icon>
+      <ion-icon [name]="library"></ion-icon>
     </ion-tab-button>
 
     <ion-tab-button tab="lists">
-      <ion-icon name="square"></ion-icon>
+      <ion-icon [name]="lists"></ion-icon>
     </ion-tab-button>
 
   </ion-tab-bar>
