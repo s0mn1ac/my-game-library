@@ -1,11 +1,13 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Tab 2
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ng-container *transloco="let t">
 
-<ion-content [fullscreen]="true">
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title> {{ t('library.title') }} </ion-title>
+    </ion-toolbar>
+  </ion-header>
   
-</ion-content>
+  <ion-content [fullscreen]="true">
+  
+  </ion-content>
+
+</ng-container>

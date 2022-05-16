@@ -1,0 +1,13 @@
+{
+    "board": {
+        "title": "Tablón"
+    },
+
+    "library": {
+        "title": "Biblioteca"
+    },
+
+    "lists": {
+        "title": "Listas"
+    }
+}
