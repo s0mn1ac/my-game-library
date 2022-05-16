@@ -22,15 +22,15 @@
   
     </ion-grid>
   
-    <!-- <app-empty-screen *ngIf="!hasDataToShow && !isLoading"
+    <app-empty-screen *ngIf="!hasDataToShow && !isLoading"
         [icon]="'search-outline'"
         [title]="t('library.emptyScreen.title')"
         [description]="t('library.emptyScreen.description')"
         [showButton]="false">
-    </app-empty-screen> -->
+    </app-empty-screen>
   
     <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)" *ngIf="hasDataToShow">
-      <ion-refresher-content></ion-refresher-content>
+      <ion-refresher-content refreshingSpinner="crescent"></ion-refresher-content>
     </ion-refresher>
   
     <ion-infinite-scroll threshold="100px" (ionInfinite)="loadNextValues($event)" *ngIf="hasDataToShow">
