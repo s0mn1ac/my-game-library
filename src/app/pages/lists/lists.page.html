@@ -6,8 +6,30 @@
     </ion-toolbar>
   </ion-header>
   
-  <ion-content [fullscreen]="true">
-  
+  <ion-content *transloco="let t">
+
+    <ion-list *ngIf="hasDataToShow">
+
+      <app-list-card [routerLink]="'/lists/' + list?.id" [list]="list" *ngFor="let list of lists"></app-list-card>
+        
+    </ion-list>
+
+    <app-empty-screen *ngIf="!hasDataToShow"
+        [icon]="'list-outline'"
+        [title]="t('emptyScreen.listsTitle')"
+        [description]="t('emptyScreen.listsDescription')"
+        [buttonLabel]="t('emptyScreen.listsButtonLabel')"
+        (clickEventEmitter)="onClickAddButton()">
+    </app-empty-screen>
+
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="hasDataToShow">
+
+      <ion-fab-button (click)="onClickAddButton()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+
+    </ion-fab>
+
   </ion-content>
 
 </ng-container>

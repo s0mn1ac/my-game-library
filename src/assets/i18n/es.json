@@ -1,7 +1,10 @@
 {
 
     "buttons": {
-        "addToList": "Añadir a la lista..."
+        "delete": "Eliminar",
+        "addToList": "Añadir a la lista...",
+        "cancel": "Cancelar",
+        "create": "Crear"
     },
 
     "emptyScreen": {
@@ -9,7 +12,22 @@
         "boardDescription": "Parece que esto está un poco vacío. ¿Por qué no pruebas a añadir alguna lista?",
         "boardButtonLabel": "Añadir una lista",
         "libraryTitle": "Sin resultados",
-        "libraryDescription": "Parece que los parámetros de búsqueda que has introducido no han obtenido ningún resultado. ¿Por qué no pruebas de nuevo?"
+        "libraryDescription": "Parece que los parámetros de búsqueda que has introducido no han obtenido ningún resultado. ¿Por qué no pruebas de nuevo?",
+        "listsTitle": "Vaya...",
+        "listsDescription": "Parece que esto está un poco vacío. ¿Por qué no pruebas a crear alguna lista?",
+        "listsButtonLabel": "Crear una lista",
+        "listTitle": "Vaya...",
+        "listDescription": "Parece que esto está un poco vacío. ¿Por qué no pruebas a añadir algún juego desde la biblioteca?",
+        "listButtonLabel": "Añadir un juego"
+    },
+
+    "modal": {
+        "addToListHeader": "Añadir juego a una lista",
+        "addToListBody": "Selecciona cualquier lista de las que tengas creadas para añadirle este juego",
+        "deleteListHeader": "¿Quieres eliminar la lista?",
+        "deleteListBody": "Ten presente que este cambio es irreversible. En cuanto lo hagas, ¡no habrá vuelta a trás!",
+        "deleteGamesHeader": "¿Quieres eliminar los juegos seleccionados?",
+        "deleteGamesBody": "Ten presente que este cambio es irreversible. En cuanto lo hagas, ¡no habrá vuelta a trás!"
     },
 
     "board": {
@@ -18,11 +36,18 @@
     },
 
     "library": {
-        "title": "Biblioteca"
+        "title": "Biblioteca",
+        "createList": "Crear lista"
     },
 
     "lists": {
-        "title": "Listas"
+        "title": "Listas",
+        "list": {
+            "newList": "Nueva lista",
+            "listName": "Nombre de la lista",
+            "changeName": "Cambiar nombre",
+            "deleteList": "Borrar lista"
+        }
     }
     
 }

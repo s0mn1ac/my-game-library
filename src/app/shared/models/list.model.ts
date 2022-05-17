@@ -5,5 +5,5 @@ export class List {
     name: string;
     isOnBoard: boolean;
     position?: number;
-    games: Game[];
+    games: Game[] = [];
 }

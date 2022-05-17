@@ -1,8 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { IonSearchbar } from '@ionic/angular';
+import { Router } from '@angular/router';
+import { ActionSheetController, AlertController, IonSearchbar } from '@ionic/angular';
+import { TranslocoService } from '@ngneat/transloco';
 import { Game } from 'src/app/shared/models/game.model';
 import { GamesResponseData } from 'src/app/shared/models/games-response-data.model';
+import { List } from 'src/app/shared/models/list.model';
 import { GameService } from 'src/app/shared/services/game.service';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-library',
@@ -15,6 +19,8 @@ export class LibraryPage implements OnInit {
 
   public games: Game[] = [];
 
+  public lists: List[] = [];
+
   public isSearchbarVisible: boolean;
   public hasDataToShow: boolean;
   public isLoading: boolean;
@@ -23,11 +29,20 @@ export class LibraryPage implements OnInit {
 
   private nextUrl: string;
 
+  private actionSheet: HTMLIonActionSheetElement;
+
+
   constructor(
-    private gameService: GameService
+    private router: Router,
+    private storageService: StorageService,
+    private gameService: GameService,
+    private translocoService: TranslocoService,
+    private actionSheetController: ActionSheetController,
+    private alertController: AlertController
   ) {}
 
   ngOnInit(): void {
+    this.getAllLists();
     this.getGames(null);
   }
 
@@ -65,6 +80,17 @@ export class LibraryPage implements OnInit {
     event.target.disabled = this.nextUrl == null;
   }
 
+  public async onClickAddToListButton(game: Game): Promise<void> {
+    this.actionSheet = await this.actionSheetController.create({
+      header: this.translocoService.translate('modal.addToListHeader'),
+      subHeader: this.translocoService.translate('modal.addToListBody'),
+      buttons: this.lists !== undefined && this.lists?.length > 0
+        ? this.lists?.map((list: List) => ({ text: list?.name, handler: () => this.addGameToList(game.id, list.id) }))
+        : [{ text: this.translocoService.translate('library.createList'), handler: () => this.onClickAddNewList() }]
+    });
+    await this.actionSheet.present();
+  }
+
   private async getGames(url?: string): Promise<void> {
     this.isLoading = true;
     const gamesResponseData: GamesResponseData = await this.gameService.getGames(url, this.searchValue);
@@ -72,6 +98,49 @@ export class LibraryPage implements OnInit {
     this.nextUrl = gamesResponseData.next;
     this.hasDataToShow = this.games !== undefined && this.games?.length > 0;
     this.isLoading = false;
+  }
+
+  private getAllLists(): void {
+    this.lists = this.storageService.getAllLists();
+    this.hasDataToShow = this.lists !== undefined && this.lists?.length > 0;
+  }
+
+  private async onClickAddNewList(): Promise<void> {
+
+    const alert = await this.alertController.create({
+      header: this.translocoService.translate('lists.list.newList'),
+      inputs: [
+        {
+          name: 'name',
+          type: 'text',
+          placeholder: this.translocoService.translate('lists.list.listName')
+        }
+      ],
+      buttons: [
+        {
+          text: this.translocoService.translate('buttons.cancel'),
+          role: 'cancel',
+        }, {
+          text: this.translocoService.translate('buttons.create'),
+          handler: (event: any) => {
+            this.addNewList(event.name);
+            this.getAllLists();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
+  }
+
+  private addNewList(name: string): void {
+    this.storageService.addNewList({ id: new Date().getTime().toString(), name, isOnBoard: false, games: [] });
+  }
+
+  private async addGameToList(gameId: number, listId: string): Promise<void> {
+    await this.actionSheet?.dismiss();
+    const game: Game = await this.gameService.getGameInfo(gameId);
+    await this.storageService.addNewGame(listId, game);
   }
 
 }

@@ -1,0 +1,22 @@
+<ion-modal #modal mode="md" [breakpoints]="breakpoints" [initialBreakpoint]="initialBreakpoint">
+        
+  <ng-template>
+
+    <ion-content *transloco="let t">
+
+      <ion-item class="modal-item" lines="none">
+        <ion-label class="ion-text-center" text-wrap>
+          <ion-icon slot="start" [name]="modalOptions.icon" size="large" color="danger"></ion-icon>
+          <h2> {{ modalOptions.title }} </h2>
+          <p> {{ modalOptions.description }} </p>
+          <ion-button mode="ios" size="large" expand="block" [color]="modalOptions.buttonColor" (click)="onClickModalButton()">
+            {{ modalOptions.buttonName }}
+          </ion-button>
+        </ion-label>
+      </ion-item>
+
+    </ion-content>
+
+  </ng-template>
+
+</ion-modal>

@@ -20,7 +20,6 @@ export class AppComponent implements OnInit {
 
   private getStoredData(): void {
     const userData: UserData = JSON.parse(localStorage.getItem(myGameLibraryStorageItem)) ?? new UserData();
-    localStorage.setItem(myGameLibraryStorageItem, JSON.stringify(userData));
     this.storageService.userData = userData as UserData;
   }
 

@@ -5,7 +5,11 @@ import { ListsPage } from './lists.page';
 const routes: Routes = [
   {
     path: '',
-    component: ListsPage,
+    component: ListsPage
+  },
+  {
+    path: ':id',
+    loadChildren: () => import('../list/list.module').then( m => m.ListPageModule),
   }
 ];
 

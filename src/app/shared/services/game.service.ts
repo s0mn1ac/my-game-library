@@ -15,10 +15,10 @@ export class GameService extends BaseService {
     super(http);
   }
 
-  // public async getGameInfo(id: number | string): Promise<Game> {
-  //   const report = await this.getGameInfoReport(id);
-  //   return this.converterService.convertGameInfoFromReport(report);
-  // }
+  public async getGameInfo(id: number | string): Promise<Game> {
+    const report = await this.getGameInfoReport(id);
+    return new Game(report);
+  }
 
   public async getGames(url?: string, searchValue?: string): Promise<GamesResponseData> {
     const report = await this.getGamesReport(url, searchValue);
@@ -27,14 +27,13 @@ export class GameService extends BaseService {
 
   // ---------------------------------------------------------------------------------------------------------------------------------------
 
-  // private async getGameInfoReport(id: number | string): Promise<any> {
-  //   return this.serviceGet({
-  //     url: `${apiURL}/games/${id}${apiKey}`,
-  //     headers: new HttpHeaders({ token: 'f5b9bcd495c6417d948da840a50adc5a' }),
-  //     callback: (response: any) => response.body,
-  //     result: null
-  //   });
-  // }
+  private async getGameInfoReport(id: number | string): Promise<any> {
+    return this.serviceGet({
+      url: `${apiURL}/games/${id}${apiKey}`,
+      callback: (response: any) => response.body,
+      result: null
+    });
+  }
 
   private async getGamesReport(url?: string, searchValue?: string): Promise<any> {
     return this.serviceGet({

@@ -1,0 +1,26 @@
+<ion-card>
+
+  <ion-card-header>
+    <ion-card-title> {{ list?.name }} </ion-card-title>
+    <ion-icon color="warning" name="clipboard-outline" *ngIf="list?.isOnBoard"></ion-icon>
+  </ion-card-header>
+  
+  <ion-card-content>
+
+    <div class="list-container">
+
+      <div class="game-container" *ngFor="let game of list?.games | slice : 0 : (list?.games?.length > 4 ? 3 : 4)">
+        <img [src]="game?.image" [alt]="game.name" />
+      </div>
+
+      <div class="empty-game-container" *ngFor="let game of getEmptySpaces(list?.games)"></div>
+
+      <div class="more-items-container" *ngIf="list?.games?.length > 4">
+        <ion-label color="primary"> {{ '+' + (list?.games?.length - 3) }} </ion-label>
+      </div>
+
+    </div>
+
+  </ion-card-content>
+
+</ion-card>

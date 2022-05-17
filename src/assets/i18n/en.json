@@ -1,7 +1,10 @@
 {
 
     "buttons": {
-        "addToList": "Add to list..."
+        "delete": "Delete",
+        "addToList": "Add to list...",
+        "cancel": "Cancel",
+        "create": "Create"
     },
 
     "emptyScreen": {
@@ -9,7 +12,22 @@
         "boardDescription": "Looks like this is a bit empty. Why don't you try adding some lists?",
         "boardButtonLabel": "Add a list",
         "libraryTitle": "No results",
-        "libraryDescription": "It appears that the search parameters you entered did not return any results. Why don't you try again?"
+        "libraryDescription": "It appears that the search parameters you entered did not return any results. Why don't you try again?",
+        "listsTitle": "Oops...",
+        "listsDescription": "Looks like this is a bit empty. Why don't you try creating a list?",
+        "listsButtonLabel": "Create a list",
+        "listTitle": "Oops...",
+        "listDescription": "Looks like this is a bit empty. Why don't you try adding some games from the library?",
+        "listButtonLabel": "Add a game"
+    },
+
+    "modal": {
+        "addToListHeader": "Add game to a list",
+        "addToListBody": "Select any of the available lists to add this game to it",
+        "deleteListHeader": "Do you want to delete the list?",
+        "deleteListBody": "Keep in mind that this change is irreversible. Once you do it, there is no going back!",
+        "deleteGamesHeader": "Do you want to delete the games selected?",
+        "deleteGamesBody": "Keep in mind that this change is irreversible. Once you do it, there is no going back!"
     },
 
     "board": {
@@ -18,11 +36,18 @@
     },
 
     "library": {
-        "title": "Library"
+        "title": "Library",
+        "createList": "Create list"
     },
 
     "lists": {
-        "title": "Lists"
+        "title": "Lists",
+        "list": {
+            "newList": "New list",
+            "listName": "List name",
+            "changeName": "Change name",
+            "deleteList": "Delete list"
+        }
     }
     
 }
