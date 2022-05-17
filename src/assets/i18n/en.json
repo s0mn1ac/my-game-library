@@ -4,6 +4,14 @@
         "addToList": "Add to list..."
     },
 
+    "emptyScreen": {
+        "boardTitle": "Oops...",
+        "boardDescription": "Looks like this is a bit empty. Why don't you try adding some lists?",
+        "boardButtonLabel": "Add a list",
+        "libraryTitle": "No results",
+        "libraryDescription": "It appears that the search parameters you entered did not return any results. Why don't you try again?"
+    },
+
     "board": {
         "title": "Boad",
         "searchByGameName": "Search by game name..."

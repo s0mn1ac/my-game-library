@@ -4,6 +4,14 @@
         "addToList": "Añadir a la lista..."
     },
 
+    "emptyScreen": {
+        "boardTitle": "Vaya...",
+        "boardDescription": "Parece que esto está un poco vacío. ¿Por qué no pruebas a añadir alguna lista?",
+        "boardButtonLabel": "Añadir una lista",
+        "libraryTitle": "Sin resultados",
+        "libraryDescription": "Parece que los parámetros de búsqueda que has introducido no han obtenido ningún resultado. ¿Por qué no pruebas de nuevo?"
+    },
+
     "board": {
         "title": "Tablón",
         "searchByGameName": "Buscar por nombre de juego..."
