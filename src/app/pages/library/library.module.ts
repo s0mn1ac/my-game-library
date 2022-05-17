@@ -6,6 +6,7 @@ import { LibraryPage } from './library.page';
 import { LibraryPageRoutingModule } from './library-routing.module';
 import { TranslocoModule } from '@ngneat/transloco';
 import { ComponentsModule } from 'src/app/shared/modules/components.module';
+import { GamesSkeletonComponent } from './skeletons/games-skeleton/games-skeleton.component';
 
 @NgModule({
   imports: [
@@ -16,6 +17,9 @@ import { ComponentsModule } from 'src/app/shared/modules/components.module';
     TranslocoModule,
     ComponentsModule
   ],
-  declarations: [LibraryPage]
+  declarations: [
+    LibraryPage,
+    GamesSkeletonComponent
+  ]
 })
 export class LibraryPageModule {}

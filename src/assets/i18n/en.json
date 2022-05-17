@@ -5,7 +5,8 @@
     },
 
     "board": {
-        "title": "Boad"
+        "title": "Boad",
+        "searchByGameName": "Search by game name..."
     },
 
     "library": {

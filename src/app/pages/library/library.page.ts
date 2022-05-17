@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { IonSearchbar } from '@ionic/angular';
 import { Game } from 'src/app/shared/models/game.model';
 import { GamesResponseData } from 'src/app/shared/models/games-response-data.model';
 import { GameService } from 'src/app/shared/services/game.service';
@@ -10,45 +11,44 @@ import { GameService } from 'src/app/shared/services/game.service';
 })
 export class LibraryPage implements OnInit {
 
+  @ViewChild('customSearchbar') customSearchbar: IonSearchbar;
+
   public games: Game[] = [];
 
+  public isSearchbarVisible: boolean;
   public hasDataToShow: boolean;
   public isLoading: boolean;
 
+  public searchValue: string;
+
   private nextUrl: string;
-  private lastSearchValue: string;
 
   constructor(
     private gameService: GameService
   ) {}
 
   ngOnInit(): void {
-    this.getLastReleasedGames();
+    this.getGames(null);
+  }
+
+  public showSearchbar() {
+    this.isSearchbarVisible = true;
+    setTimeout(() => this.customSearchbar.setFocus(), 1);
+  }
+
+  public hideSearchbar() {
+    this.isSearchbarVisible = false;
+  }
+
+  public onSearch(event: any): void {
+    this.searchValue = event?.target?.value === '' ? null : event?.target?.value;
+    this.getGames(null);
+    this.isSearchbarVisible = false;
   }
 
   public async onRefresh(event: any): Promise<void> {
-    await this.onSearch(this.lastSearchValue);
+    await this.getGames(null);
     event.target.complete();
-  }
-
-  public async onSearch(value: string): Promise<void> {
-
-    this.isLoading = true;
-
-    this.lastSearchValue = value;
-
-    if (value == null) {
-      await this.getLastReleasedGames();
-      this.isLoading = false;
-      return;
-    }
-
-    const gamesResponseData: GamesResponseData = await this.gameService.getFilteredGames(value);
-    this.games = gamesResponseData.results;
-    this.nextUrl = gamesResponseData.next;
-    this.hasDataToShow = this.games !== undefined && this.games?.length > 0;
-
-    this.isLoading = false;
   }
 
   public async loadNextValues(event: any): Promise<void> {
@@ -57,7 +57,7 @@ export class LibraryPage implements OnInit {
       return;
     }
 
-    const gamesResponseData: GamesResponseData = await this.gameService.getGamesByUrl(this.nextUrl);
+    const gamesResponseData: GamesResponseData = await this.gameService.getGames(this.nextUrl, null);
     this.games = this.games.concat(gamesResponseData.results);
     this.nextUrl = gamesResponseData.next;
 
@@ -65,11 +65,13 @@ export class LibraryPage implements OnInit {
     event.target.disabled = this.nextUrl == null;
   }
 
-  private async getLastReleasedGames(): Promise<void> {
-    const gamesResponseData: GamesResponseData = await this.gameService.getLastReleasedGames();
+  private async getGames(url?: string): Promise<void> {
+    this.isLoading = true;
+    const gamesResponseData: GamesResponseData = await this.gameService.getGames(url, this.searchValue);
     this.games = gamesResponseData.results;
     this.nextUrl = gamesResponseData.next;
     this.hasDataToShow = this.games !== undefined && this.games?.length > 0;
+    this.isLoading = false;
   }
 
 }

@@ -5,7 +5,8 @@
     },
 
     "board": {
-        "title": "Tablón"
+        "title": "Tablón",
+        "searchByGameName": "Buscar por nombre de juego..."
     },
 
     "library": {

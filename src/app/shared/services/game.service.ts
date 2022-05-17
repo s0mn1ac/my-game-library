@@ -20,18 +20,8 @@ export class GameService extends BaseService {
   //   return this.converterService.convertGameInfoFromReport(report);
   // }
 
-  public async getFilteredGames(searchValue?: string): Promise<GamesResponseData> {
-    const report = await this.getFilteredGamesReport(searchValue);
-    return this.getGamesResponseDataFromReport(report);
-  }
-
-  public async getGamesByUrl(url: string): Promise<GamesResponseData> {
-    const report = await this.getGamesByUrlReport(url);
-    return this.getGamesResponseDataFromReport(report);
-  }
-
-  public async getLastReleasedGames(): Promise<GamesResponseData> {
-    const report = await this.getLastReleasedGamesReport();
+  public async getGames(url?: string, searchValue?: string): Promise<GamesResponseData> {
+    const report = await this.getGamesReport(url, searchValue);
     return this.getGamesResponseDataFromReport(report);
   }
 
@@ -46,32 +36,31 @@ export class GameService extends BaseService {
   //   });
   // }
 
-  private async getFilteredGamesReport(searchValue?: string): Promise<any> {
+  private async getGamesReport(url?: string, searchValue?: string): Promise<any> {
     return this.serviceGet({
-      url: `${apiURL}/games${apiKey}`,
-      params: { search: searchValue },
+      url: this.buildUrl(url),
+      params: this.buildParams(searchValue),
       callback: (response: any) => response.body,
       result: null
     });
   }
 
-  private async getGamesByUrlReport(url: string): Promise<any> {
-    return this.serviceGet({
-      url,
-      callback: (response: any) => response.body,
-      result: null
-    });
+  // ---------------------------------------------------------------------------------------------------------------------------------------
+
+  private buildUrl(url?: string): string {
+    if (url == null) {
+      return `${apiURL}/games${apiKey}`;
+    }
+    return url;
   }
 
-  private async getLastReleasedGamesReport(): Promise<any> {
+  private buildParams(searchValue?: string): any {
     const dateStart: string = moment().subtract(1, 'month').format('YYYY-MM-DD');
     const dateEnd: string = moment().format('YYYY-MM-DD');
-    return this.serviceGet({
-      url: `${apiURL}/games${apiKey}`,
-      params: { dates: `${dateStart},${dateEnd}` },
-      callback: (response: any) => response.body,
-      result: null
-    });
+    if (searchValue == null) {
+      return { dates: `${dateStart},${dateEnd}` };
+    }
+    return { search: searchValue };
   }
 
   // ---------------------------------------------------------------------------------------------------------------------------------------

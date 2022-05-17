@@ -1,27 +1,40 @@
 <ng-container *transloco="let t">
 
   <ion-header [translucent]="true">
+
     <ion-toolbar>
-      <ion-title> {{ t('library.title') }} </ion-title>
+
+      <ion-title *ngIf="!isSearchbarVisible"> {{ t('library.title') }} </ion-title>
+      
+      <ion-searchbar #customSearchbar *ngIf="isSearchbarVisible" [value]="searchValue"
+        showCancelButton="always" [placeholder]="t('board.searchByGameName')"
+        (search)="onSearch($event)" (ionCancel)="hideSearchbar()">
+      </ion-searchbar>
+
+      <ion-buttons slot="end">
+        <ion-button shape="round" *ngIf="!isSearchbarVisible" (click)="showSearchbar()">
+          <ion-icon slot="icon-only" name="search"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+
     </ion-toolbar>
+
   </ion-header>
   
-  <ion-content [fullscreen]="true" *ngIf="hasDataToShow">
+  <ion-content [fullscreen]="true">
 
-    <ion-grid>
-
+    <ion-grid *ngIf="!isLoading">
       <ion-row>
-  
         <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="4" *ngFor="let game of games">
-  
           <app-game-card [game]="game" [addToList]="true"></app-game-card>
-          
         </ion-col>
-  
       </ion-row>
-  
     </ion-grid>
-  
+
+    <div class="skeleton-container" *ngIf="isLoading">
+      <app-games-skeleton></app-games-skeleton>
+    </div>
+
     <app-empty-screen *ngIf="!hasDataToShow && !isLoading"
         [icon]="'search-outline'"
         [title]="t('library.emptyScreen.title')"
