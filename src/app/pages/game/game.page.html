@@ -34,15 +34,35 @@
             <div class="score" [ngClass]="game?.score?.color"> {{ game?.score?.value ?? '-' }} </div>
           </div>
 
+          <ion-chip [ngClass]="game?.status" (click)="optionsPopover.present()" outline="true" color="danger" *ngIf="game?.status === statusEnum.notStarted">
+            <ion-icon [name]="'stop-outline'"></ion-icon>
+            <ion-label> {{ t('game.' + game?.status) }} </ion-label>
+          </ion-chip>
+
+          <ion-chip [ngClass]="game?.status" (click)="optionsPopover.present()" outline="true" color="primary" *ngIf="game?.status === statusEnum.playing">
+            <ion-icon [name]="'play-outline'"></ion-icon>
+            <ion-label> {{ t('game.' + game?.status) }} </ion-label>
+          </ion-chip>
+
+          <ion-chip [ngClass]="game?.status" (click)="optionsPopover.present()" outline="true" color="warning" *ngIf="game?.status === statusEnum.paused">
+            <ion-icon [name]="'pause-outline'"></ion-icon>
+            <ion-label> {{ t('game.' + game?.status) }} </ion-label>
+          </ion-chip>
+
+          <ion-chip [ngClass]="game?.status" (click)="optionsPopover.present()" outline="true" color="success" *ngIf="game?.status === statusEnum.completed">
+            <ion-icon [name]="'checkmark-outline'"></ion-icon>
+            <ion-label> {{ t('game.' + game?.status) }} </ion-label>
+          </ion-chip>
+<!-- 
           <ion-chip [ngClass]="game?.status" id="statusTrigger" outline="true" color="primary">
             <ion-icon [name]="'stop-outline'" *ngIf="game?.status === statusEnum.notStarted"></ion-icon>
             <ion-icon [name]="'play-outline'" *ngIf="game?.status === statusEnum.playing"></ion-icon>
             <ion-icon [name]="'pause-outline'" *ngIf="game?.status === statusEnum.paused"></ion-icon>
             <ion-icon [name]="'checkmark-outline'" *ngIf="game?.status === statusEnum.completed"></ion-icon>
             <ion-label> {{ t('game.' + game?.status) }} </ion-label>
-          </ion-chip>
+          </ion-chip> -->
   
-          <ion-popover #optionsPopover trigger="statusTrigger" [dismissOnSelect]="true">
+          <ion-popover #optionsPopover [dismissOnSelect]="true">
             <ng-template>
               <ion-content>
                 <ion-list>

@@ -79,7 +79,22 @@ ion-content {
                     }
     
                     ion-chip {
-                        border: 1px solid var(--ion-color-primary);
+
+                        &.notStarted {
+                            border: 1px solid var(--ion-color-danger);
+                        }
+
+                        &.playing {
+                            border: 1px solid var(--ion-color-primary);
+                        }
+
+                        &.paused {
+                            border: 1px solid var(--ion-color-warning);
+                        }
+
+                        &.completed {
+                            border: 1px solid var(--ion-color-success);
+                        }
 
                         ion-icon {
                             margin: 0;
