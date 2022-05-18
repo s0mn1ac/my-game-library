@@ -42,8 +42,8 @@ export class Game {
         this.image = result.background_image;
         this.releaseDate = result.released;
         this.tba = result.tba;
-        this.metascore = result.metacritic ? new MetaScore(result.metacritic) : undefined;
-        this.score = result.score ? new UserScore(result.score) : undefined;
+        this.metascore = new MetaScore(result.metacritic);
+        this.score = new UserScore(result.score ?? 5);
         this.avgPlaytime = result.playtime;
         this.screenshots = result.screenshots?.map((screenshot: any) => screenshot.image);
         this.esrb = result.esrb_rating != null ? this.buildEsrb(result.esrb_rating) : null;
@@ -56,7 +56,7 @@ export class Game {
         this.saturatedColor = `#${result.saturated_color}`;
         this.developers = this.buildDevelopers(result.developers);
         this.publishers = this.buildPublishers(result.publishers);
-        this.status = StatusEnum.playing;
+        this.status = StatusEnum.notStarted;
     }
 
     private buildEsrb(esrbRaw: any): Esrb {

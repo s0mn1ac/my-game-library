@@ -1,0 +1,162 @@
+ion-content {
+
+    div.header-container {
+
+        div.background-image-container {
+            width: 100%;
+            height: 300px;
+    
+            img {
+                height: 100%;
+                width: 100%;
+                object-fit: cover;
+                border-bottom-left-radius: 5px;
+                border-bottom-right-radius: 5px;
+                box-shadow: 0 5px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);
+            }
+        }
+
+        div.header {
+            padding: 16px;
+            text-align: center;
+
+            div.parent-platforms {
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                margin-bottom: 8px;
+        
+                img {
+                    height: 13px;
+                    margin: 0px 5px;
+                }
+            }
+    
+            ion-label.title {
+                margin-top: 8px;
+                padding: 0px;
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 1.2;
+            }
+
+            div.status-bar {
+                display: flex;
+                flex-direction: column;
+                margin-top: 0.5rem;
+                padding: 0.5rem;
+                width: 100%;
+                border-radius: 0.5rem;
+
+                div.status-bar-first-row {
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    align-items: center;
+                    padding: 0 0.5rem;
+    
+                    div.user-score {
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        margin-right: 0.5rem;
+
+                        label {
+                            margin: 0 0.5rem;
+                        }
+    
+                        div.score {
+                            min-width: 32px;
+                            display: inline-block;
+                            box-sizing: border-box;
+                            padding: 2px 0;
+                            font-weight: 700;
+                            text-align: center;
+                            border-radius: 4px;
+                            border: 1px solid;
+                        }
+                    }
+    
+                    ion-chip {
+                        border: 1px solid var(--ion-color-primary);
+
+                        ion-icon {
+                            margin: 0;
+                        }
+
+                        ion-label {
+                            min-width: 90px;
+                        }
+                    }
+                }
+
+                div.status-bar-second-row {
+                    margin-top: 0.5rem;
+                    border: 2px solid var(--ion-color-warning);
+                    border-radius: 0.5rem;
+                    padding: 1rem;
+                    height: 144px;
+
+                    ion-slides {
+                        height: 100%;
+                    }
+
+                    div.slide p {
+                        font-size: 1rem;
+                        font-weight: 500;
+                        overflow: hidden;
+                        text-overflow: ellipsis;
+                        display: -webkit-box;
+                        -webkit-line-clamp: 4;
+                        -webkit-box-orient: vertical;
+                    }
+
+                    div.add-slide {
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: center;
+                        align-items: center;
+
+                        ion-icon {
+                            margin-right: 0.5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    div.about-container {
+        display: flex;
+        flex-direction: column;
+
+        div.row {
+            display: flex;
+            flex-direction: row;
+
+            ion-item {
+                width: 100%;
+
+                h3 {
+                    margin-bottom: 0.5rem;
+                }
+
+                div.metascore {
+                    min-width: 32px;
+                    display: inline-block;
+                    box-sizing: border-box;
+                    padding: 2px 0;
+                    font-weight: 700;
+                    text-align: center;
+                    border-radius: 4px;
+                    border: 1px solid;
+                }
+            }
+        }
+    }
+}
+
+.ion-text-break-spaces {
+    white-space: break-spaces !important;
+}

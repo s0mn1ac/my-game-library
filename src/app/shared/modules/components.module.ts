@@ -7,19 +7,22 @@ import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-scre
 import { GameCardComponent } from 'src/app/components/game-card/game-card.component';
 import { ListCardComponent } from 'src/app/components/list-card/list-card.component';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
+import { NoteBuilderComponent } from 'src/app/components/note-builder/note-builder.component';
 
 @NgModule({
   declarations: [
     GameCardComponent,
     EmptyScreenComponent,
     ListCardComponent,
-    ModalComponent
+    ModalComponent,
+    NoteBuilderComponent
   ],
   exports: [
     GameCardComponent,
     EmptyScreenComponent,
     ListCardComponent,
-    ModalComponent
+    ModalComponent,
+    NoteBuilderComponent
   ],
   imports: [
     CommonModule,

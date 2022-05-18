@@ -4,7 +4,8 @@
         "delete": "Delete",
         "addToList": "Add to list...",
         "cancel": "Cancel",
-        "create": "Create"
+        "create": "Create",
+        "change": "Change"
     },
 
     "emptyScreen": {
@@ -48,6 +49,48 @@
             "changeName": "Change name",
             "deleteList": "Delete list"
         }
+    },
+
+    "game": {
+        "description": "Description",
+        "platforms": "Platforms",
+        "metascore": "Metascore",
+        "genres": "Genres",
+        "releaseDate": "Release date",
+        "developer": "Developer",
+        "publisher": "Publisher",
+        "ageRating": "Age rating",
+        "userScore": "My score",
+        "notStarted": "Not started",
+        "completed": "Completed",
+        "paused": "Paused",
+        "playing": "Playing",
+        "addNote": "Add a note",
+        "saveNote": "Save note",
+        "yourNoteHere": "Yout note here...",
+        "myScore": "My score:"
+    },
+
+    "genres": {
+        "action": "Action",
+        "indie": "Indie",
+        "adventure": "Adventue",
+        "role-playing-games-rpg": "RGP",
+        "strategy": "Strategy",
+        "shooter": "Shooter",
+        "casual": "Casual",
+        "simulation": "Simulation",
+        "puzzle": "Puzzle",
+        "arcade": "Arcade",
+        "platformer": "Platformer",
+        "racing": "Racing",
+        "massively-multiplayer": "Massively multiplayer",
+        "sports": "Sports",
+        "fighting": "Fighting",
+        "family": "Family",
+        "board-games": "Board games",
+        "educational": "Educational",
+        "card": "Card games"
     }
     
 }

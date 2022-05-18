@@ -1,6 +1,6 @@
 <ion-header *transloco="let t">
 
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     
     <ion-buttons slot="start">
       <ion-back-button defaultHref="/lists"></ion-back-button>
@@ -46,7 +46,7 @@
 
     <ion-row>
 
-      <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="4" *ngFor="let game of list?.games">
+      <ion-col size="12" size-sm="12" size-md="6" size-lg="6" size-xl="4" *ngFor="let game of games">
         
         <app-game-card
           (click)="onClickNavigateToGame(game.id)"

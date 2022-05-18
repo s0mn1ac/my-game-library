@@ -20,6 +20,8 @@ export class ListPage implements OnInit, OnDestroy {
 
   public list: List;
 
+  public games: Game[];
+
   public gamesToDelete: number[] = [];
 
   public deleteGamesModalOptions: ModalOptions;
@@ -97,8 +99,7 @@ export class ListPage implements OnInit, OnDestroy {
   }
 
   public async onClickDeleteGamesFromList(): Promise<void> {
-    const gamesToDelete: Game[] = this.gamesToDelete.map((gameId: number) => this.list.games.find((game: Game) => game.id === gameId ));
-    this.storageService.deleteGames(this.list.id, gamesToDelete);
+    this.storageService.deleteGames(this.list.id, this.gamesToDelete);
     this.getListById(this.list.id);
     this.onClickSelectGames();
   }
@@ -139,17 +140,16 @@ export class ListPage implements OnInit, OnDestroy {
   }
 
   private initParamsSubscription(): void {
-    this.params$ = this.activatedRoute.params?.subscribe((params: Params) => {
-      this.getListById(params?.id);
-    });
+    this.params$ = this.activatedRoute.params?.subscribe((params: Params) => this.getListById(parseInt(params?.id, 10)));
   }
 
   private cancelParamsSubscription(): void {
     this.params$?.unsubscribe();
   }
 
-  private getListById(id: string): void {
+  private getListById(id: number): void {
     this.list = this.storageService.getListById(id);
+    this.games = this.list.games?.map((gameId: number) => this.storageService.getGameById(gameId));
     this.hasDataToShow = this.list?.games !== undefined && this.list?.games?.length > 0;
   }
 

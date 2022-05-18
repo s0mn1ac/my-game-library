@@ -9,8 +9,8 @@
 
     <div class="list-container">
 
-      <div class="game-container" *ngFor="let game of list?.games | slice : 0 : (list?.games?.length > 4 ? 3 : 4)">
-        <img [src]="game?.image" [alt]="game.name" />
+      <div class="game-container" *ngFor="let gameId of list?.games | slice : 0 : (list?.games?.length > 4 ? 3 : 4)">
+        <img [src]="getGameInfo(gameId)?.image" [alt]="getGameInfo(gameId)?.name" />
       </div>
 
       <div class="empty-game-container" *ngFor="let game of getEmptySpaces(list?.games)"></div>

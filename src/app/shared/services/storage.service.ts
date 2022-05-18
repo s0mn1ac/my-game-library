@@ -25,7 +25,7 @@ export class StorageService {
     return this._userData.lists;
   }
 
-  public getListById(id: string): List {
+  public getListById(id: number): List {
     return this._userData.lists.find((list: List) => list.id === id);
   }
 
@@ -34,7 +34,7 @@ export class StorageService {
     this.updateUserData();
   }
 
-  public modifyList(id: string, item: string, value: any): void {
+  public modifyList(id: number, item: string, value: any): void {
     const foundList: List = this._userData.lists.find((list: List) => list.id === id);
     if (foundList !== null) {
       foundList[item] = value;
@@ -42,37 +42,50 @@ export class StorageService {
     }
   }
 
-  public deleteList(id: string): void {
+  public deleteList(id: number): void {
     const lists: List[] = this._userData.lists.filter((list: List) => list.id !== id);
     this._userData.lists = lists;
     this.updateUserData();
   }
 
-  public addNewGame(id: string, newGame: Game): void {
+  public getGameById(id: number): Game {
+    return this._userData.games.find((game: Game) => game.id === id);
+  }
+
+  public addNewGame(id: number, newGame: Game): void {
     const foundList: List = this._userData.lists.find((list: List) => list.id === id);
     if (foundList === undefined) {
       return;
     }
-    const foundGame: Game = foundList.games.find((game: Game) => game.id === newGame.id);
-    if (foundGame !== undefined) {
+    const foundGameId: number = foundList.games.find((gameId: number) => gameId === newGame.id);
+    if (foundGameId !== undefined) {
       return;
     }
-    foundList.games.push(newGame);
+    this._userData.games.push(newGame);
+    foundList.games.push(newGame.id);
     this.updateUserData();
   }
 
-  public deleteGames(id: string, games: Game[]): void {
+  public modifyGame(id: number, item: string, value: any): void {
+    const foundGame: Game = this._userData.games.find((game: Game) => game.id === id);
+    if (foundGame !== null) {
+      foundGame[item] = value;
+      this.updateUserData();
+    }
+  }
+
+  public deleteGames(id: number, games: number[]): void {
     const foundList: List = this._userData.lists.find((list: List) => list.id === id);
     if (foundList !== null) {
-      const availableGames: Game[] = [];
-      foundList.games.forEach((game: Game) => {
-        games.forEach((gameToDelete: Game) => {
-          if (game.id !== gameToDelete.id) {
-            availableGames.push(game);
+      const availableGamesIds: number[] = [];
+      foundList.games.forEach((gameId: number) => {
+        games.forEach((gameIdToDelete: number) => {
+          if (gameId !== gameIdToDelete) {
+            availableGamesIds.push(gameId);
           }
         });
       });
-      foundList.games = availableGames;
+      foundList.games = availableGamesIds;
       this.updateUserData();
     }
   }

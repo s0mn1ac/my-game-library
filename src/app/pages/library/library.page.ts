@@ -1,5 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { ActionSheetController, AlertController, IonSearchbar } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { Game } from 'src/app/shared/models/game.model';
@@ -33,7 +32,6 @@ export class LibraryPage implements OnInit {
 
 
   constructor(
-    private router: Router,
     private storageService: StorageService,
     private gameService: GameService,
     private translocoService: TranslocoService,
@@ -134,12 +132,12 @@ export class LibraryPage implements OnInit {
   }
 
   private addNewList(name: string): void {
-    this.storageService.addNewList({ id: new Date().getTime().toString(), name, isOnBoard: false, games: [] });
+    this.storageService.addNewList({ id: new Date().getTime(), name, isOnBoard: false, games: [] });
   }
 
-  private async addGameToList(gameId: number, listId: string): Promise<void> {
+  private async addGameToList(gameId: number, listId: number): Promise<void> {
     await this.actionSheet?.dismiss();
-    const game: Game = await this.gameService.getGameInfo(gameId);
+    const game: Game = await this.gameService.getGameInfo(gameId); // TODO: Puede tardar un poco
     await this.storageService.addNewGame(listId, game);
   }
 

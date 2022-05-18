@@ -1,0 +1,22 @@
+div.about-skeleton-layout {
+
+    div.row {
+        display: flex;
+        flex-direction: row;
+        height: 90px;
+        padding: 0 16px;
+        margin: 10px 0;
+    }
+
+    div.description-skeleton {
+        height: 200px;
+
+        ion-skeleton-text {
+            border-radius: 5px;
+        }
+    }
+}
+
+ion-skeleton-text {
+    margin: 0;
+}

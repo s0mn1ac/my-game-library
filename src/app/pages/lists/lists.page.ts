@@ -59,7 +59,7 @@ export class ListsPage {
   }
 
   private addNewList(name: string): void {
-    this.storageService.addNewList({ id: new Date().getTime().toString(), name, isOnBoard: false, games: [] });
+    this.storageService.addNewList({ id: new Date().getTime(), name, isOnBoard: false, games: [] });
   }
 
 }

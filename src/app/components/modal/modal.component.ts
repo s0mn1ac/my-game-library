@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { ModalOptions } from 'src/app/shared/interfaces/modal-options.interface';
 
@@ -7,7 +7,7 @@ import { ModalOptions } from 'src/app/shared/interfaces/modal-options.interface'
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss'],
 })
-export class ModalComponent implements OnInit {
+export class ModalComponent {
 
   @ViewChild('modal') modal: IonModal;
 
@@ -15,10 +15,6 @@ export class ModalComponent implements OnInit {
   public initialBreakpoint = 0.3;
 
   public modalOptions: ModalOptions;
-
-  constructor() { }
-
-  ngOnInit() {}
 
   public show(nextLevelModalOptions: ModalOptions): void {
     this.modalOptions = nextLevelModalOptions;

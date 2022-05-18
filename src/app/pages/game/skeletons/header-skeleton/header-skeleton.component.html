@@ -1,0 +1,30 @@
+<div class="header-skeleton-layout">
+
+  <div class="background-image-skeleton">
+    <ion-skeleton-text animated></ion-skeleton-text>
+  </div>
+  
+  <div class="header-skeleton">
+
+    <div class="parent-platforms-skeleton">
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </div>
+    
+    <div class="title-skeleton">
+      <ion-skeleton-text animated></ion-skeleton-text>
+    </div>
+    
+    <div class="status-bar-skeleton" *ngIf="isStatusBarVisible">
+      <div class="status-bar-first-row">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </div>
+      <div class="status-bar-second-row">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </div>
+    </div>
+
+  </div>
+
+</div>
