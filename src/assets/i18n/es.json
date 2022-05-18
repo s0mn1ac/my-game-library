@@ -47,7 +47,9 @@
             "newList": "Nueva lista",
             "listName": "Nombre de la lista",
             "changeName": "Cambiar nombre",
-            "deleteList": "Borrar lista"
+            "deleteList": "Borrar lista",
+            "selectGames": "Seleccionar juegos",
+            "stopSelecting": "Dejar de seleccionar"
         }
     },
 

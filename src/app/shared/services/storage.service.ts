@@ -4,6 +4,7 @@ import { myGameLibraryStorageItem } from 'src/assets/constants/my-game-library.c
 import { Game } from '../models/game.model';
 import { List } from '../models/list.model';
 import { UserData } from '../models/user-data.model';
+import { difference } from 'lodash';
 
 @Injectable({
   providedIn: 'root'
@@ -61,8 +62,11 @@ export class StorageService {
     if (foundGameId !== undefined) {
       return;
     }
-    this._userData.games.push(newGame);
     foundList.games.push(newGame.id);
+    const foundGame: Game = this._userData.games.find((game: Game) => game.id === newGame.id);
+    if (foundGame === undefined) {
+      this._userData.games.push(newGame);
+    }
     this.updateUserData();
   }
 
@@ -74,17 +78,10 @@ export class StorageService {
     }
   }
 
-  public deleteGames(id: number, games: number[]): void {
+  public deleteGames(id: number, gamesIds: number[]): void {
     const foundList: List = this._userData.lists.find((list: List) => list.id === id);
     if (foundList !== null) {
-      const availableGamesIds: number[] = [];
-      foundList.games.forEach((gameId: number) => {
-        games.forEach((gameIdToDelete: number) => {
-          if (gameId !== gameIdToDelete) {
-            availableGamesIds.push(gameId);
-          }
-        });
-      });
+      const availableGamesIds: number[] = difference(foundList.games, gamesIds);
       foundList.games = availableGamesIds;
       this.updateUserData();
     }
