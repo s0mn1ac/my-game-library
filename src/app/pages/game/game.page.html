@@ -23,6 +23,9 @@
       </div>
     
       <ion-label class="title"> {{ game?.name }} </ion-label>
+      <ion-icon name="md-android"></ion-icon>
+
+
 
       <div class="status-bar" *ngIf="isGameDataLoaded && isStatusBarVisible">
 
@@ -53,14 +56,6 @@
             <ion-icon [name]="'checkmark-outline'"></ion-icon>
             <ion-label> {{ t('game.' + game?.status) }} </ion-label>
           </ion-chip>
-<!-- 
-          <ion-chip [ngClass]="game?.status" id="statusTrigger" outline="true" color="primary">
-            <ion-icon [name]="'stop-outline'" *ngIf="game?.status === statusEnum.notStarted"></ion-icon>
-            <ion-icon [name]="'play-outline'" *ngIf="game?.status === statusEnum.playing"></ion-icon>
-            <ion-icon [name]="'pause-outline'" *ngIf="game?.status === statusEnum.paused"></ion-icon>
-            <ion-icon [name]="'checkmark-outline'" *ngIf="game?.status === statusEnum.completed"></ion-icon>
-            <ion-label> {{ t('game.' + game?.status) }} </ion-label>
-          </ion-chip> -->
   
           <ion-popover #optionsPopover [dismissOnSelect]="true">
             <ng-template>
@@ -180,7 +175,7 @@
       <ion-item lines="none" *ngIf="game?.esrb !== null">
         <ion-label>
           <h3> {{ t('game.ageRating') }} </h3>
-          <p> {{ game?.esrb?.name }} </p>
+          <p> <img [src]="'../../../assets/images/esrb/' + game?.esrb?.slug + '.svg'" [name]="game?.esrb?.name"> </p>
         </ion-label>
       </ion-item>
     </div>
