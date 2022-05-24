@@ -4,7 +4,7 @@ import { BaseService } from 'src/app/shared/services/base.service';
 import { Game } from '../models/game.model';
 import { GamesResponseData } from '../models/games-response-data.model';
 import * as moment from 'moment';
-import { apiKey, apiURL } from 'src/assets/constants/my-game-library.contants';
+import { apiKey, apiURL } from 'src/assets/constants/my-game-library.constants';
 
 @Injectable({
   providedIn: 'root'

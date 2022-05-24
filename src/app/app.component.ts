@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { myGameLibraryStorageItem } from 'src/assets/constants/my-game-library.contants';
+import { myGameLibraryStorageItem } from 'src/assets/constants/my-game-library.constants';
 import { UserData } from './shared/models/user-data.model';
 import { DarkModeService } from './shared/services/dark-mode.service';
 import { StorageService } from './shared/services/storage.service';

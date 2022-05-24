@@ -25,10 +25,17 @@
         <div class="status-section">
 
           <div class="status" *ngIf="isStatusBarVisible">
+
             <ion-icon name="stop" color="danger" *ngIf="game?.status === statusEnum.notStarted"></ion-icon>
             <ion-icon name="play" color="primary" *ngIf="game?.status === statusEnum.playing"></ion-icon>
             <ion-icon name="pause" color="warning" *ngIf="game?.status === statusEnum.paused"></ion-icon>
             <ion-icon name="checkmark" color="success" *ngIf="game?.status === statusEnum.completed"></ion-icon>
+            
+            <div class="notes-container" *ngIf="game.notes?.length > 0">
+              <ion-label color="warning"> {{ game.notes.length }} </ion-label>
+              <ion-icon name="clipboard-outline" color="warning"></ion-icon>
+            </div>
+
           </div>
   
           <ion-button mode="ios" expand="block" size="small" (click)="onClickAddToListButton($event, game)" *ngIf="addToList">

@@ -4,8 +4,8 @@ export const apiKey = '?key=f5b9bcd495c6417d948da840a50adc5a';
 export const myGameLibraryStorageItem = 'my-game-library';
 
 export const boardTitle = 'board';
-export const boardIconFilled = 'clipboard';
-export const boardIconOutline = 'clipboard-outline';
+export const boardIconFilled = 'albums';
+export const boardIconOutline = 'albums-outline';
 
 export const libraryTitle = 'library';
 export const libraryIconFilled = 'library';

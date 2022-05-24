@@ -67,10 +67,23 @@ ion-card {
                         display: flex;
                         flex-direction: row;
                         margin: 0.5rem 0;
+                        justify-content: space-between;
         
                         ion-icon {
                             margin-right: 0.5rem;
                             font-size: 20px;
+                        }
+
+                        div.notes-container {
+                            display: flex;
+                            flex-direction: row;
+                            align-items: center;
+
+                            ion-label {
+                                margin-right: 0.5rem;
+                                font-size: 16px;
+                                line-height: 16px;
+                            }
                         }
                     }
 

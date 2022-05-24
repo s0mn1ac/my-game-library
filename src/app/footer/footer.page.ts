@@ -14,7 +14,7 @@ import {
   settingsIconFilled,
   settingsIconOutline,
   settingsTitle
-} from 'src/assets/constants/my-game-library.contants';
+} from 'src/assets/constants/my-game-library.constants';
 
 @Component({
   selector: 'app-footer',
