@@ -32,7 +32,7 @@ export class Game {
     publishers: Publisher[];
     status: StatusEnum = StatusEnum.notStarted;
     score: UserScore;
-    preferredPlatform: Platform;
+    preferredParentPlatform: ParentPlatform;
     notes: string[] = [];
 
     constructor(result: any) {

@@ -3,4 +3,5 @@ export class ParentPlatform {
     name: string;
     slug: string;
     icon: string;
+    isSelected = false;
 }

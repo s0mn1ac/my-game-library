@@ -44,6 +44,10 @@ ion-card {
                         ion-icon {
                             margin: 0px 3px;
                             font-size: 12px;
+
+                            &.selected {
+                                color: var(--ion-color-primary);
+                            }
                         }
                     }
                 

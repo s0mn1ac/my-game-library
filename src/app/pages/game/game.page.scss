@@ -30,6 +30,10 @@ ion-content {
                 ion-icon {
                     margin: 0px 4px;
                     font-size: 14px;
+
+                    &.selected {
+                        color: var(--ion-color-primary);
+                    }
                 }
             }
     

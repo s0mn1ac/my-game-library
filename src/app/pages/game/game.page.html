@@ -19,7 +19,10 @@
     <div class="header">
 
       <div class="parent-platforms">
-        <ion-icon [name]="parentPlatform.icon" *ngFor="let parentPlatform of game?.parentPlatforms"></ion-icon>
+        <ion-icon [name]="parentPlatform.icon" *ngFor="let parentPlatform of game?.parentPlatforms"
+          (click)="onClickModifyParentPlatform(parentPlatform)"
+          [ngClass]="{ 'selected': parentPlatform.isSelected }">
+        </ion-icon>
       </div>
     
       <ion-label class="title"> {{ game?.name }} </ion-label>

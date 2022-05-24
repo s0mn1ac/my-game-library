@@ -13,7 +13,9 @@
         <div class="title-section">
 
           <div class="parent-platforms">
-            <ion-icon [name]="parentPlatform.icon" *ngFor="let parentPlatform of game?.parentPlatforms"></ion-icon>
+            <ion-icon [name]="parentPlatform.icon" *ngFor="let parentPlatform of game?.parentPlatforms"
+              [ngClass]="{ 'selected': parentPlatform.isSelected }">
+            </ion-icon>
           </div>
 
           <div class="title">

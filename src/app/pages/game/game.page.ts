@@ -1,11 +1,12 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { PickerColumnOption, PickerController } from '@ionic/angular';
+import { PickerColumnOption, PickerController, Platform } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { Subscription } from 'rxjs';
 import { NoteBuilderComponent } from 'src/app/components/note-builder/note-builder.component';
 import { StatusEnum } from 'src/app/shared/enums/status.enum';
 import { Game } from 'src/app/shared/models/game.model';
+import { ParentPlatform } from 'src/app/shared/models/parent-platform.model';
 import { UserScore } from 'src/app/shared/models/user-score.model';
 import { GameService } from 'src/app/shared/services/game.service';
 import { StorageService } from 'src/app/shared/services/storage.service';
@@ -47,7 +48,13 @@ export class GamePage implements OnInit, OnDestroy {
     this.cancelParamsSubscription();
   }
 
-  public async onClickUpdateGameStatus(status: StatusEnum): Promise<void> {
+  public onClickModifyParentPlatform(selectedParentPlatform: ParentPlatform): void {
+    selectedParentPlatform.isSelected = !selectedParentPlatform.isSelected;
+    this.storageService.modifyGame(this.game.id, 'parentPlatforms', this.game.parentPlatforms);
+    this.getGameById(this.game.id);
+  }
+
+  public onClickUpdateGameStatus(status: StatusEnum): void {
     this.storageService.modifyGame(this.game.id, 'status', status);
     this.getGameById(this.game.id);
   }
@@ -74,7 +81,7 @@ export class GamePage implements OnInit, OnDestroy {
     await picker.present();
   }
 
-  public async onClickSaveNote(note: string): Promise<void> {
+  public onClickSaveNote(note: string): void {
     if (this.selectedNoteIndex != null) {
       this.game.notes[this.selectedNoteIndex] = note;
     } else {
@@ -88,7 +95,7 @@ export class GamePage implements OnInit, OnDestroy {
     this.selectedNoteIndex = null;
   }
 
-  public async onClickShowNote(note?: string, index?: number): Promise<void> {
+  public onClickShowNote(note?: string, index?: number): void {
     this.selectedNoteIndex = index;
     this.noteBuilder.show(note);
   }
