@@ -73,6 +73,11 @@ ion-card {
                             font-size: 20px;
                         }
                     }
+
+                    ion-button {
+                        border-radius: var(--border-radius);
+                        box-shadow: var(--shadow-medium);
+                    }
                 }
             }
         }
