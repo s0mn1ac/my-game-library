@@ -26,6 +26,7 @@ export class GamePage implements OnInit, OnDestroy {
   public isLoading = false;
   public isGameDataLoaded = false;
   public isStatusBarVisible = false;
+  public isDarkModeEnabled = true;
 
   private params$: Subscription;
 

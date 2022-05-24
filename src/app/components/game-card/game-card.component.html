@@ -13,7 +13,7 @@
         <div class="title-section">
 
           <div class="parent-platforms">
-            <img [src]="parentPlatform.image + '.svg'" *ngFor="let parentPlatform of game?.parentPlatforms" [alt]="parentPlatform.name" />
+            <ion-icon [name]="parentPlatform.icon" *ngFor="let parentPlatform of game?.parentPlatforms"></ion-icon>
           </div>
 
           <div class="title">

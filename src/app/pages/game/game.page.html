@@ -19,13 +19,14 @@
     <div class="header">
 
       <div class="parent-platforms">
-        <img [src]="parentPlatform.image + '.svg'" *ngFor="let parentPlatform of game?.parentPlatforms" [alt]="parentPlatform.name" />
+        <ion-icon [name]="parentPlatform.icon" *ngFor="let parentPlatform of game?.parentPlatforms"></ion-icon>
       </div>
+
+      <ion-button (click)="setDarkMode()" expand="block" fill="clear" shape="round">
+        Click me
+      </ion-button>
     
       <ion-label class="title"> {{ game?.name }} </ion-label>
-      <ion-icon name="md-android"></ion-icon>
-
-
 
       <div class="status-bar" *ngIf="isGameDataLoaded && isStatusBarVisible">
 

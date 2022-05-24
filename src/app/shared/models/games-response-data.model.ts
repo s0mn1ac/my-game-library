@@ -7,9 +7,9 @@ export class GamesResponseData {
     results: Game[];
 
     constructor(report: any, games: Game[]) {
-        this.count = report.count;
-        this.next = report.next;
-        this.previous = report.previous;
+        this.count = report?.count;
+        this.next = report?.next;
+        this.previous = report?.previous;
         this.results = games;
     }
 }

@@ -87,7 +87,7 @@ export class Game {
             parentPlatform.id = parentPlatformRaw.platform.id;
             parentPlatform.name = parentPlatformRaw.platform.name;
             parentPlatform.slug = parentPlatformRaw.platform.slug;
-            parentPlatform.image = `assets/images/platforms/${parentPlatform.slug}`;
+            parentPlatform.icon = `md-${parentPlatform.slug}`;
             parentPlatforms.push(parentPlatform);
         });
         return parentPlatforms;
