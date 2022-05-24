@@ -19,8 +19,22 @@ export class AppComponent implements OnInit {
   }
 
   private getStoredData(): void {
-    const userData: UserData = JSON.parse(localStorage.getItem(myGameLibraryStorageItem)) ?? new UserData();
+    const userData: UserData = JSON.parse(localStorage.getItem(myGameLibraryStorageItem));
+    if (userData === null) {
+      this.initApp();
+      return;
+    }
     this.storageService.userData = userData as UserData;
+  }
+
+  private initApp(): void {
+    const prefersDark: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+    this.setDarkMode(prefersDark.matches);
+    this.storageService.userData = new UserData();
+  }
+
+  private setDarkMode(isDarkModeEnabled: boolean): void {
+    document.body.classList.toggle('dark', isDarkModeEnabled);
   }
 
 }
