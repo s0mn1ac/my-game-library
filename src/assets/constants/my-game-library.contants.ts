@@ -14,3 +14,7 @@ export const libraryIconOutline = 'library-outline';
 export const listsTitle = 'lists';
 export const listsIconFilled = 'list';
 export const listsIconOutline = 'list-outline';
+
+export const settingsTitle = 'settings';
+export const settingsIconFilled = 'settings';
+export const settingsIconOutline = 'settings-outline';

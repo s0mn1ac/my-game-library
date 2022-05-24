@@ -11,7 +11,9 @@ import { apiKey, apiURL } from 'src/assets/constants/my-game-library.contants';
 })
 export class GameService extends BaseService {
 
-  constructor(protected http: HttpClient) {
+  constructor(
+    protected http: HttpClient
+  ) {
     super(http);
   }
 

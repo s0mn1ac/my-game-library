@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { myGameLibraryStorageItem } from 'src/assets/constants/my-game-library.contants';
 import { UserData } from './shared/models/user-data.model';
+import { DarkModeService } from './shared/services/dark-mode.service';
 import { StorageService } from './shared/services/storage.service';
 
 @Component({
@@ -8,33 +10,47 @@ import { StorageService } from './shared/services/storage.service';
   templateUrl: 'app.component.html',
   styleUrls: ['app.component.scss'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnDestroy {
+
+  private darkMode$: Subscription;
 
   constructor(
-    private storageService: StorageService
+    private storageService: StorageService,
+    private darkModeService: DarkModeService
   ) { }
 
   ngOnInit(): void {
+    this.initSubscriptions();
     this.getStoredData();
   }
 
+  ngOnDestroy(): void {
+    this.cancelSubscriptions();
+  }
+
+  private initSubscriptions(): void {
+    this.darkMode$ = this.darkModeService.getDarkModeObservable().subscribe((isEnabled: boolean) => this.setDarkMode(isEnabled));
+  }
+
+  private cancelSubscriptions(): void {
+    this.darkMode$?.unsubscribe();
+  }
+
   private getStoredData(): void {
-    const userData: UserData = JSON.parse(localStorage.getItem(myGameLibraryStorageItem));
+    let userData: UserData = JSON.parse(localStorage.getItem(myGameLibraryStorageItem));
     if (userData === null) {
-      this.initApp();
-      return;
+      this.storageService.userData = new UserData();
+      const prefersDark: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
+      userData = new UserData();
+      userData.darkMode = prefersDark.matches;
     }
-    this.storageService.userData = userData as UserData;
+    this.storageService.userData = userData;
+    this.darkModeService.updateDarkMode(userData.darkMode);
   }
 
-  private initApp(): void {
-    const prefersDark: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');
-    this.setDarkMode(prefersDark.matches);
-    this.storageService.userData = new UserData();
-  }
-
-  private setDarkMode(isDarkModeEnabled: boolean): void {
-    document.body.classList.toggle('dark', isDarkModeEnabled);
+  private setDarkMode(isEnabled: boolean): void {
+    console.log(isEnabled ? '💡 Lights OFF!' : '💡 Lights ON!');
+    document.body.classList.toggle('dark', isEnabled);
   }
 
 }

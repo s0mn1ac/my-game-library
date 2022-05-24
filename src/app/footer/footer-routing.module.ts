@@ -20,6 +20,10 @@ const routes: Routes = [
         loadChildren: () => import('../pages/lists/lists.module').then(m => m.ListsPageModule)
       },
       {
+        path: 'settings',
+        loadChildren: () => import('../pages/settings/settings.module').then(m => m.SettingsPageModule)
+      },
+      {
         path: '',
         redirectTo: '/board',
         pathMatch: 'full'

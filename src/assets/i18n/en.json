@@ -53,6 +53,12 @@
         }
     },
 
+    "settings": {
+        "title": "Settings",
+        "dark": "Dark mode",
+        "light": "Light mode"
+    },
+
     "game": {
         "description": "Description",
         "platforms": "Platforms",

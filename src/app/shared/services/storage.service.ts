@@ -5,6 +5,7 @@ import { Game } from '../models/game.model';
 import { List } from '../models/list.model';
 import { UserData } from '../models/user-data.model';
 import { difference } from 'lodash';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,7 @@ import { difference } from 'lodash';
 export class StorageService {
 
   private _userData: UserData;
+  private _userData$ = new Subject<UserData>();
 
   get userData() {
     return this._userData;
@@ -21,6 +23,12 @@ export class StorageService {
     this._userData = userData;
     this.updateUserData();
   }
+
+  public updateUserData(): void {
+    localStorage.setItem(myGameLibraryStorageItem, JSON.stringify(this._userData));
+  }
+
+  // ---- LISTS ----------------------------------------------------------------------------------------------------------------------------
 
   public getAllLists(): List[] {
     return this._userData.lists;
@@ -48,6 +56,8 @@ export class StorageService {
     this._userData.lists = lists;
     this.updateUserData();
   }
+
+  // ---- GAMES ----------------------------------------------------------------------------------------------------------------------------
 
   public getGameById(id: number): Game {
     return this._userData.games.find((game: Game) => game.id === id);
@@ -85,10 +95,6 @@ export class StorageService {
       foundList.games = availableGamesIds;
       this.updateUserData();
     }
-  }
-
-  private updateUserData(): void {
-    localStorage.setItem(myGameLibraryStorageItem, JSON.stringify(this._userData));
   }
 
 }

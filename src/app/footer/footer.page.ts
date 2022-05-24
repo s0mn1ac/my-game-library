@@ -10,7 +10,10 @@ import {
   libraryTitle,
   listsIconFilled,
   listsIconOutline,
-  listsTitle
+  listsTitle,
+  settingsIconFilled,
+  settingsIconOutline,
+  settingsTitle
 } from 'src/assets/constants/my-game-library.contants';
 
 @Component({
@@ -25,6 +28,7 @@ export class FooterPage {
   public board: string;
   public library: string;
   public lists: string;
+  public settings: string;
 
   public updateFooterIcons(tabSelected: any): void {
     switch (tabSelected) {
@@ -32,21 +36,31 @@ export class FooterPage {
         this.board = boardIconFilled;
         this.library = libraryIconOutline;
         this.lists = listsIconOutline;
+        this.settings = settingsIconOutline;
         break;
       case libraryTitle:
         this.board = boardIconOutline;
         this.library = libraryIconFilled;
         this.lists = listsIconOutline;
+        this.settings = settingsIconOutline;
         break;
       case listsTitle:
         this.board = boardIconOutline;
         this.library = libraryIconOutline;
         this.lists = listsIconFilled;
+        this.settings = settingsIconOutline;
+        break;
+      case settingsTitle:
+        this.board = boardIconOutline;
+        this.library = libraryIconOutline;
+        this.lists = listsIconOutline;
+        this.settings = settingsIconFilled;
         break;
       default:
         this.board = boardIconOutline;
         this.library = libraryIconOutline;
         this.lists = listsIconOutline;
+        this.settings = settingsIconOutline;
         break;
     }
   }

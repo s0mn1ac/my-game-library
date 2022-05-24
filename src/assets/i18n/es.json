@@ -53,6 +53,12 @@
         }
     },
 
+    "settings": {
+        "title": "Ajustes",
+        "dark": "Modo oscuro",
+        "light": "Modo claro"
+    },
+
     "game": {
         "description": "Descripción",
         "platforms": "Plataformas",

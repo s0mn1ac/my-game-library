@@ -1,0 +1,23 @@
+<ng-container *transloco="let t">
+
+  <ion-header [translucent]="true">
+    <ion-toolbar>
+      <ion-title> {{ t('settings.title') }} </ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+    
+    <ion-list>
+      
+      <ion-item lines="full">
+        <ion-icon slot="start" [name]="isDarkModeEnabled ? 'moon-outline' : 'sunny-outline'"></ion-icon>
+        <ion-label> {{ t('settings.' + (isDarkModeEnabled ? 'dark' : 'light')) }} </ion-label>
+        <ion-toggle id="themeToggle" slot="end" [(ngModel)]="isDarkModeEnabled" (ionChange)="onChangeDarkMode()"></ion-toggle>
+      </ion-item>
+
+    </ion-list>
+  
+  </ion-content>
+
+</ng-container>
