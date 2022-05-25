@@ -39,10 +39,10 @@
             </div>
 
           </div>
-  
-          <ion-button mode="ios" expand="block" size="small" (click)="onClickAddToListButton($event, game)" *ngIf="addToList">
-            {{ t('buttons.addToList') }}
-          </ion-button>
+
+          <ion-fab-button mode="ios" size="small" (click)="onClickAddToListButton($event, game)" *ngIf="addToList">
+            <ion-icon name="list"></ion-icon>
+          </ion-fab-button>
 
         </div>
   

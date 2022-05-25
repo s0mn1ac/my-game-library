@@ -1,0 +1,38 @@
+ion-action-sheet {
+
+    div.action-sheet-title {
+        text-align: center !important;
+        margin-top: 62px;
+        padding: 10px 20px 20px 20px !important;
+        line-height: 1.2 !important;
+        font-size: 16px !important;
+        font-weight: normal !important;
+        color: var(--ion-color-dark) !important;
+        position: relative;
+
+        &::before{
+            content: '';
+            position: absolute;
+            background-image: url('../custom-ion-icons/md-playlist-add.svg');
+            background-size: contain;
+            top: -32px;
+            left: calc(50% - 16px);
+            height: 32px;
+            width: 32px;
+        }
+
+        div.action-sheet-sub-title {
+            padding: 0 !important;
+            margin-top: 10px !important;
+            font-size: 14px !important;
+            line-height: 20px !important;
+            color: var(--ion-color-step-600, #666666) !important;
+        }
+    }
+
+    .action-sheet-group:not(.action-sheet-group-cancel) {
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        max-height: 50vh;
+    }
+}

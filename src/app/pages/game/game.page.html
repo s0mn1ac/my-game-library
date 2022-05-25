@@ -62,20 +62,20 @@
               <ion-content>
                 <ion-list>
                   <ion-item lines="full" (click)="onClickUpdateGameStatus(statusEnum.notStarted)">
-                    <ion-icon color="primary" slot="start" name="stop-outline"></ion-icon>
-                    <ion-label slot="end"> {{ t('game.notStarted') }} </ion-label>
+                    <ion-icon color="danger" slot="start" name="stop-outline"></ion-icon>
+                    <ion-label slot="end" color="danger"> {{ t('game.notStarted') }} </ion-label>
                   </ion-item>
                   <ion-item lines="full" (click)="onClickUpdateGameStatus(statusEnum.playing)">
                     <ion-icon color="primary" slot="start" name="play-outline"></ion-icon>
-                    <ion-label slot="end"> {{ t('game.playing') }} </ion-label>
+                    <ion-label slot="end" color="primary"> {{ t('game.playing') }} </ion-label>
                   </ion-item>
                   <ion-item lines="full" (click)="onClickUpdateGameStatus(statusEnum.paused)">
-                    <ion-icon color="primary" slot="start" name="pause-outline"></ion-icon>
-                    <ion-label slot="end"> {{ t('game.paused') }} </ion-label>
+                    <ion-icon color="warning" slot="start" name="pause-outline"></ion-icon>
+                    <ion-label slot="end" color="warning"> {{ t('game.paused') }} </ion-label>
                   </ion-item>
                   <ion-item lines="none" (click)="onClickUpdateGameStatus(statusEnum.completed)">
-                    <ion-icon color="primary" slot="start" name="checkmark-outline"></ion-icon>
-                    <ion-label slot="end"> {{ t('game.completed') }} </ion-label>
+                    <ion-icon color="success" slot="start" name="checkmark-outline"></ion-icon>
+                    <ion-label slot="end" color="success"> {{ t('game.completed') }} </ion-label>
                   </ion-item>
                 </ion-list>
               </ion-content>

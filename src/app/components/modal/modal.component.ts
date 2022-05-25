@@ -11,7 +11,7 @@ export class ModalComponent {
 
   @ViewChild('modal') modal: IonModal;
 
-  public breakpoints: number[] = [0, 0.3];
+  public breakpoints: number[] = [0, 0.3, 0.3];
   public initialBreakpoint = 0.3;
 
   public modalOptions: ModalOptions;
