@@ -25,7 +25,7 @@ export class ListsPage {
     this.getAllLists();
   }
 
-  public async onClickAddButton(): Promise<void> {
+  public async onClickCreateList(): Promise<void> {
 
     const alert = await this.alertController.create({
       header: this.translocoService.translate('lists.list.newList'),

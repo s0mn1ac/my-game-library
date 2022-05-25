@@ -19,12 +19,12 @@
         [title]="t('emptyScreen.listsTitle')"
         [description]="t('emptyScreen.listsDescription')"
         [buttonLabel]="t('emptyScreen.listsButtonLabel')"
-        (clickEventEmitter)="onClickAddButton()">
+        (clickEventEmitter)="onClickCreateList()">
     </app-empty-screen>
 
     <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="hasDataToShow">
 
-      <ion-fab-button (click)="onClickAddButton()">
+      <ion-fab-button (click)="onClickCreateList()">
         <ion-icon name="add"></ion-icon>
       </ion-fab-button>
 

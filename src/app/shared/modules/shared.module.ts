@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 import { IonicModule } from '@ionic/angular';
 import { TranslocoModule } from '@ngneat/transloco';
+import { ComponentsModule } from './components.module';
 
 @NgModule({
   declarations: [],
@@ -12,14 +13,16 @@ import { TranslocoModule } from '@ngneat/transloco';
     TranslocoModule,
     FormsModule,
     ReactiveFormsModule,
-    IonicModule
+    IonicModule,
+    ComponentsModule
   ],
   exports: [
     CommonModule,
     TranslocoModule,
     FormsModule,
     ReactiveFormsModule,
-    IonicModule
+    IonicModule,
+    ComponentsModule
   ],
   providers: []
 })

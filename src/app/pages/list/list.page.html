@@ -12,12 +12,12 @@
       <ion-button *ngIf="isInEditMode" (click)="onClickSelectGames()">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
-      <ion-button id="side-button">
+      <ion-button id="list-options-button">
         <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
       </ion-button>
     </ion-buttons>
 
-    <ion-popover #optionsPopover trigger="side-button" [dismissOnSelect]="true">
+    <ion-popover #optionsPopover trigger="list-options-button" [dismissOnSelect]="true">
       <ng-template>
         <ion-content>
           <ion-list>
@@ -28,7 +28,7 @@
               <ion-label slot="end" *ngIf="!isInEditMode"> {{ t('lists.list.selectGames') }} </ion-label>
               <ion-label slot="end" *ngIf="isInEditMode"> {{ t('lists.list.stopSelecting') }} </ion-label>
             </ion-item>
-            <ion-item (click)="onClickShowNextLevelModal(deleteListModalOptions)" lines="none">
+            <ion-item (click)="onClickShowModal(deleteListModalOptions)" lines="none">
               <ion-label slot="end" color="danger"> {{ t('lists.list.deleteList') }} </ion-label>
             </ion-item>
           </ion-list>
@@ -76,7 +76,7 @@
 
   <ion-fab vertical="bottom" horizontal="end" slot="fixed" *ngIf="gamesToDelete?.length !== 0 && hasDataToShow">
 
-    <ion-fab-button color="danger" (click)="onClickShowNextLevelModal(deleteGamesModalOptions)">
+    <ion-fab-button color="danger" (click)="onClickShowModal(deleteGamesModalOptions)">
       <ion-icon name="trash-outline"></ion-icon>
     </ion-fab-button>
 

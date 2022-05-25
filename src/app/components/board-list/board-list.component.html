@@ -1,0 +1,21 @@
+<div class="board-list-layout">
+
+  <div class="board-list-header">
+    <h2> {{ list?.name }} </h2>
+  </div>
+
+  <div class="board-list-container">
+
+    <div class="game-container" [routerLink]="'/game/' + gameId" *ngFor="let gameId of list?.games">
+      <img [src]="getGameInfo(gameId)?.image" [alt]="getGameInfo(gameId)?.name" class="game-background-image" />
+      <div class="status-container">
+        <ion-icon name="stop" color="danger" *ngIf="getGameInfo(gameId)?.status === statusEnum.notStarted"></ion-icon>
+        <ion-icon name="play" color="primary" *ngIf="getGameInfo(gameId)?.status === statusEnum.playing"></ion-icon>
+        <ion-icon name="pause" color="warning" *ngIf="getGameInfo(gameId)?.status === statusEnum.paused"></ion-icon>
+        <ion-icon name="checkmark" color="success" *ngIf="getGameInfo(gameId)?.status === statusEnum.completed"></ion-icon>
+      </div>
+    </div>
+
+  </div>
+
+</div>

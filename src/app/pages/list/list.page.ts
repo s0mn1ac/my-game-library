@@ -52,7 +52,7 @@ export class ListPage implements OnInit, OnDestroy {
     this.cancelParamsSubscription();
   }
 
-  public onClickShowNextLevelModal(modalOptions: ModalOptions): void {
+  public onClickShowModal(modalOptions: ModalOptions): void {
     this.modal.show(modalOptions);
   }
 

@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { TranslocoModule } from '@ngneat/transloco';
+import { BoardListComponent } from 'src/app/components/board-list/board-list.component';
 import { EmptyScreenComponent } from 'src/app/components/empty-screen/empty-screen.component';
 import { GameCardComponent } from 'src/app/components/game-card/game-card.component';
 import { ListCardComponent } from 'src/app/components/list-card/list-card.component';
@@ -15,14 +16,16 @@ import { NoteBuilderComponent } from 'src/app/components/note-builder/note-build
     EmptyScreenComponent,
     ListCardComponent,
     ModalComponent,
-    NoteBuilderComponent
+    NoteBuilderComponent,
+    BoardListComponent
   ],
   exports: [
     GameCardComponent,
     EmptyScreenComponent,
     ListCardComponent,
     ModalComponent,
-    NoteBuilderComponent
+    NoteBuilderComponent,
+    BoardListComponent
   ],
   imports: [
     CommonModule,

@@ -23,6 +23,10 @@
     },
 
     "modal": {
+        "addToBoardHeader": "Add a list to the board",
+        "addToBoardBody": "Select any list of those available below to add them to the board for easy access to its content",
+        "removeFromBoardHeader": "Do you want to remove the list from the board?",
+        "removeFromBoardBody": "Don't worry, you can add it back at any time",
         "addToListHeader": "Add game to a list",
         "addToListBody": "Select any of the available lists to add this game to it",
         "deleteListHeader": "Do you want to delete the list?",
@@ -33,12 +37,15 @@
 
     "board": {
         "title": "Boad",
-        "searchByGameName": "Search by game name..."
+        "addListToBoard": "Add list to board",
+        "modifyBoard": "Modify board",
+        "stopModifying": "Stop modifying"
     },
 
     "library": {
         "title": "Library",
-        "createList": "Create list"
+        "createList": "Create list",
+        "searchByGameName": "Search by game name..."
     },
 
     "lists": {

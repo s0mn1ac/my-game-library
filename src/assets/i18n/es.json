@@ -23,6 +23,10 @@
     },
 
     "modal": {
+        "addToBoardHeader": "Añade una lista al tablón",
+        "addToBoardBody": "Selecciona una lista de las disponibles a continuación para añadirlas al tablón y poder acceder a su contenido fácilmente",
+        "removeFromBoardHeader": "¿Quieres quitar la lista del tablón?",
+        "removeFromBoardBody": "Tranquilo, puedes volver a añadirla en cualquier momento",
         "addToListHeader": "Añadir juego a una lista",
         "addToListBody": "Selecciona cualquier lista de las que tengas creadas para añadirle este juego",
         "deleteListHeader": "¿Quieres eliminar la lista?",
@@ -33,12 +37,15 @@
 
     "board": {
         "title": "Tablón",
-        "searchByGameName": "Buscar por nombre de juego..."
+        "addListToBoard": "Añadir lista al tablón",
+        "modifyBoard": "Modificar tablón",
+        "stopModifying": "Dejar de modificar"
     },
 
     "library": {
         "title": "Biblioteca",
-        "createList": "Crear lista"
+        "createList": "Crear lista",
+        "searchByGameName": "Buscar por nombre de juego..."
     },
 
     "lists": {

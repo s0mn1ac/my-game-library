@@ -30,7 +30,6 @@ export class LibraryPage implements OnInit {
 
   private actionSheet: HTMLIonActionSheetElement;
 
-
   constructor(
     private storageService: StorageService,
     private gameService: GameService,

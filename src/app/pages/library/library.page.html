@@ -7,7 +7,7 @@
       <ion-title *ngIf="!isSearchbarVisible"> {{ t('library.title') }} </ion-title>
       
       <ion-searchbar #customSearchbar *ngIf="isSearchbarVisible" [value]="searchValue"
-        showCancelButton="always" [placeholder]="t('board.searchByGameName')"
+        showCancelButton="always" [placeholder]="t('library.searchByGameName')"
         (search)="onSearch($event)" (ionCancel)="hideSearchbar()">
       </ion-searchbar>
 
