@@ -4,6 +4,8 @@ import { myGameLibraryStorageItem } from 'src/assets/constants/my-game-library.c
 import { UserData } from './shared/models/user-data.model';
 import { DarkModeService } from './shared/services/dark-mode.service';
 import { StorageService } from './shared/services/storage.service';
+import { StatusBar, Style } from '@capacitor/status-bar';
+import { isPlatform } from '@ionic/angular';
 
 @Component({
   selector: 'app-root',
@@ -48,9 +50,13 @@ export class AppComponent implements OnInit, OnDestroy {
     this.darkModeService.updateDarkMode(userData.darkMode);
   }
 
-  private setDarkMode(isEnabled: boolean): void {
+  private async setDarkMode(isEnabled: boolean): Promise<void> {
     console.log(isEnabled ? '💡 Lights OFF!' : '💡 Lights ON!');
     document.body.classList.toggle('dark', isEnabled);
+    if (isPlatform('mobile')) {
+      await StatusBar.setBackgroundColor({ color: isEnabled ? '#000000' : '#FFFFFF' });
+      await StatusBar.setStyle({ style: isEnabled ? Style.Dark : Style.Light });
+    }
   }
 
 }
