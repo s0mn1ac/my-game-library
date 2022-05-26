@@ -2,20 +2,20 @@
 
   <ion-header [translucent]="true">
 
-    <ion-toolbar>
+    <ion-toolbar mode="ios">
 
       <ion-title> {{ t('board.title') }} </ion-title>
 
-      <ion-buttons slot="end">
-        <ion-button *ngIf="isInEditMode" (click)="onClickChangeEditMode()">
+      <ion-buttons slot="end" mode="ios">
+        <ion-button *ngIf="isInEditMode" (click)="onClickChangeEditMode()" color="dark">
           <ion-icon slot="icon-only" name="close"></ion-icon>
         </ion-button>
-        <ion-button id="board-options-button">
-          <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+        <ion-button id="board-options-button" color="dark">
+          <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
         </ion-button>
       </ion-buttons>
   
-      <ion-popover #optionsPopover trigger="board-options-button" [dismissOnSelect]="true">
+      <ion-popover #optionsPopover trigger="board-options-button" [dismissOnSelect]="true" mode="md">
         <ng-template>
           <ion-content>
             <ion-list>
@@ -35,7 +35,7 @@
 
   </ion-header>
   
-  <ion-content>
+  <ion-content mode="md">
 
     <ion-list *ngIf="isAnyListOnBoard">
       <ion-reorder-group (ionItemReorder)="onReorderBoardList($event)" [disabled]="!isInEditMode">

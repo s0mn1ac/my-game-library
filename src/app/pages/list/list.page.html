@@ -1,23 +1,23 @@
 <ion-header *transloco="let t">
 
-  <ion-toolbar>
+  <ion-toolbar mode="ios">
     
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/lists"></ion-back-button>
+    <ion-buttons slot="start" mode="ios">
+      <ion-back-button defaultHref="/lists" color="dark" text=""></ion-back-button>
     </ion-buttons>
 
     <ion-title> {{ list?.name }} </ion-title>
 
-    <ion-buttons slot="end">
-      <ion-button *ngIf="isInEditMode" (click)="onClickSelectGames()">
+    <ion-buttons slot="end" mode="ios">
+      <ion-button *ngIf="isInEditMode" (click)="onClickSelectGames()" color="dark">
         <ion-icon slot="icon-only" name="close"></ion-icon>
       </ion-button>
-      <ion-button id="list-options-button">
-        <ion-icon slot="icon-only" name="ellipsis-vertical"></ion-icon>
+      <ion-button id="list-options-button" color="dark">
+        <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
       </ion-button>
     </ion-buttons>
 
-    <ion-popover #optionsPopover trigger="list-options-button" [dismissOnSelect]="true">
+    <ion-popover #optionsPopover trigger="list-options-button" [dismissOnSelect]="true" mode="md">
       <ng-template>
         <ion-content>
           <ion-list>

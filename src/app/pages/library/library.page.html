@@ -2,17 +2,17 @@
 
   <ion-header [translucent]="true">
 
-    <ion-toolbar>
+    <ion-toolbar mode="ios">
 
       <ion-title *ngIf="!isSearchbarVisible"> {{ t('library.title') }} </ion-title>
       
       <ion-searchbar #customSearchbar *ngIf="isSearchbarVisible" [value]="searchValue"
-        showCancelButton="always" [placeholder]="t('library.searchByGameName')"
-        (search)="onSearch($event)" (ionCancel)="hideSearchbar()">
+        showCancelButton="always" cancelButtonIcon="chevron-back-outline" [placeholder]="t('library.searchByGameName')"
+        (search)="onSearch($event)" (ionCancel)="hideSearchbar()" mode="md">
       </ion-searchbar>
 
-      <ion-buttons slot="end">
-        <ion-button shape="round" *ngIf="!isSearchbarVisible" (click)="showSearchbar()">
+      <ion-buttons slot="end" mode="ios">
+        <ion-button shape="round" *ngIf="!isSearchbarVisible" (click)="showSearchbar()" color="dark">
           <ion-icon slot="icon-only" name="search"></ion-icon>
         </ion-button>
       </ion-buttons>
