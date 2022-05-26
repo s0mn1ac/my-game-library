@@ -1,6 +1,6 @@
 <ng-container *transloco="let t">
 
-  <ion-header [translucent]="true">
+  <ion-header mode="ios">
 
     <ion-toolbar mode="ios">
 
@@ -35,7 +35,7 @@
 
   </ion-header>
   
-  <ion-content mode="md">
+  <ion-content>
 
     <ion-list *ngIf="isAnyListOnBoard">
       <ion-reorder-group (ionItemReorder)="onReorderBoardList($event)" [disabled]="!isInEditMode">
