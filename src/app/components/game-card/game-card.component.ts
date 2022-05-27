@@ -2,6 +2,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { StatusEnum } from 'src/app/shared/enums/status.enum';
 import { Game } from 'src/app/shared/models/game.model';
+import { List } from 'src/app/shared/models/list.model';
+import { StorageService } from 'src/app/shared/services/storage.service';
 
 @Component({
   selector: 'app-game-card',
@@ -20,8 +22,14 @@ export class GameCardComponent {
   public statusEnum: typeof StatusEnum = StatusEnum;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private storageService: StorageService
   ) { }
+
+  public isGameOnAnyList(): boolean {
+    const lists: List[] = this.storageService.getAllLists();
+    return lists.some((list: List) => list.games.includes(this.game.id));
+  }
 
   public onClickNavigateToGame(gameId: number): void {
     this.router.navigate([`/game/${gameId}`]);

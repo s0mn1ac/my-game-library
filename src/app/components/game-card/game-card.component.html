@@ -40,8 +40,9 @@
 
           </div>
 
-          <ion-fab-button mode="ios" size="small" (click)="onClickAddToListButton($event, game)" *ngIf="addToList">
-            <ion-icon name="list"></ion-icon>
+          <ion-fab-button mode="ios" [color]="isGameOnAnyList() ? 'success' : 'primary'"
+            size="small" (click)="onClickAddToListButton($event, game)" *ngIf="addToList">
+            <ion-icon [name]="isGameOnAnyList() ? 'md-list-check' : 'list'"></ion-icon>
           </ion-fab-button>
 
         </div>
