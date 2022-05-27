@@ -142,7 +142,7 @@ export class LibraryPage implements OnInit {
 
   private async addGameToList(gameId: number, listId: number): Promise<void> {
     await this.actionSheet?.dismiss();
-    const game: Game = await this.gameService.getGameInfo(gameId); // TODO: Puede tardar un poco
+    const game: Game = await this.gameService.getGameInfo(gameId);
     await this.storageService.addNewGame(listId, game);
   }
 

@@ -13,7 +13,7 @@ ion-action-sheet {
         &::before{
             content: '';
             position: absolute;
-            background-image: url('../custom-ion-icons/md-playlist-add.svg');
+            background-image: url('../images/others/list-add.svg');
             background-size: contain;
             top: -32px;
             left: calc(50% - 16px);
