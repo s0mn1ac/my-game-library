@@ -105,6 +105,7 @@ export class LibraryPage implements OnInit {
   private async onClickAddNewList(): Promise<void> {
 
     const alert = await this.alertController.create({
+      mode: 'md',
       header: this.translocoService.translate('lists.list.newList'),
       inputs: [
         {
@@ -120,6 +121,11 @@ export class LibraryPage implements OnInit {
         }, {
           text: this.translocoService.translate('buttons.create'),
           handler: (event: any) => {
+            if (event.name === '') {
+              this.onClickAddNewList();
+              // TODO: Mensaje
+              return;
+            }
             this.addNewList(event.name);
             this.getAllLists();
           }

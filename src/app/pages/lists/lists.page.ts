@@ -28,6 +28,7 @@ export class ListsPage {
   public async onClickCreateList(): Promise<void> {
 
     const alert = await this.alertController.create({
+      mode: 'md',
       header: this.translocoService.translate('lists.list.newList'),
       inputs: [
         {
@@ -43,6 +44,11 @@ export class ListsPage {
         }, {
           text: this.translocoService.translate('buttons.create'),
           handler: (event: any) => {
+            if (event.name === '') {
+              this.onClickCreateList();
+              // TODO: Mensaje
+              return;
+            }
             this.addNewList(event.name);
             this.getAllLists();
           }

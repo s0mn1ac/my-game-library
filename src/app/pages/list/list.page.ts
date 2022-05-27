@@ -64,6 +64,7 @@ export class ListPage implements OnInit, OnDestroy {
   public async onClickChangeListName(): Promise<void> {
 
     const alert = await this.alertController.create({
+      mode: 'md',
       header: this.translocoService.translate('lists.list.listName'),
       inputs: [
         {
@@ -80,6 +81,11 @@ export class ListPage implements OnInit, OnDestroy {
         }, {
           text: this.translocoService.translate('buttons.change'),
           handler: (event: any) => {
+            if (event.name === '') {
+              this.onClickChangeListName();
+              // TODO: Mensaje
+              return;
+            }
             this.modifyList('name', event.name);
             this.getListById(this.list.id);
           }

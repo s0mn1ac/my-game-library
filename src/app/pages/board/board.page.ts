@@ -93,6 +93,7 @@ export class BoardPage implements OnInit {
   private async addNewList(): Promise<void> {
 
     const alert = await this.alertController.create({
+      mode: 'md',
       header: this.translocoService.translate('lists.list.newList'),
       inputs: [
         {
@@ -108,6 +109,11 @@ export class BoardPage implements OnInit {
         }, {
           text: this.translocoService.translate('buttons.create'),
           handler: (event: any) => {
+            if (event.name === '') {
+              this.addNewList();
+              // TODO: Mensaje
+              return;
+            }
             this.storageService.addNewList({ id: new Date().getTime(), name: event.name, isOnBoard: true, position: 0, games: [] });
             this.getAllLists();
           }
