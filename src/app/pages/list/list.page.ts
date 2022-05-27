@@ -41,11 +41,8 @@ export class ListPage implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    this.initParamsSubscription();
-  }
-
-  ionViewWillEnter(): void {
     this.initOptions();
+    this.initParamsSubscription();
   }
 
   ngOnDestroy(): void {
@@ -122,19 +119,19 @@ export class ListPage implements OnInit, OnDestroy {
 
     this.deleteGamesModalOptions = {
       icon: 'trash-outline',
-      title: this.translocoService.translate('modal.deleteGamesHeader'),
-      description: this.translocoService.translate('modal.deleteGamesBody'),
+      title: 'deleteGamesHeader',
+      description: 'deleteGamesBody',
       buttonColor: 'danger',
-      buttonName: this.translocoService.translate('buttons.delete'),
+      buttonName: 'delete',
       command: () => this.onClickDeleteGamesFromList()
     };
 
     this.deleteListModalOptions = {
       icon: 'trash-outline',
-      title: this.translocoService.translate('modal.deleteListHeader'),
-      description: this.translocoService.translate('modal.deleteListBody'),
+      title: 'deleteListHeader',
+      description: 'deleteListBody',
       buttonColor: 'danger',
-      buttonName: this.translocoService.translate('buttons.delete'),
+      buttonName: 'delete',
       command: () => this.onClickDeleteList()
     };
   }

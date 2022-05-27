@@ -7,10 +7,10 @@
       <ion-item class="modal-item" lines="none">
         <ion-label class="ion-text-center" text-wrap>
           <ion-icon slot="start" [name]="modalOptions.icon" size="large" color="danger"></ion-icon>
-          <h2> {{ modalOptions.title }} </h2>
-          <p> {{ modalOptions.description }} </p>
+          <h2> {{ t('modal.' + modalOptions.title) }} </h2>
+          <p> {{ t('modal.' + modalOptions.description) }} </p>
           <ion-button mode="ios" size="large" expand="block" [color]="modalOptions.buttonColor" (click)="onClickModalButton()">
-            {{ modalOptions.buttonName }}
+            {{ t('buttons.' + modalOptions.buttonName) }}
           </ion-button>
         </ion-label>
       </ion-item>

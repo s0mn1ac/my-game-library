@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActionSheetController, AlertController } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
 import { ModalComponent } from 'src/app/components/modal/modal.component';
@@ -11,7 +11,7 @@ import { StorageService } from 'src/app/shared/services/storage.service';
   templateUrl: 'board.page.html',
   styleUrls: ['board.page.scss']
 })
-export class BoardPage {
+export class BoardPage implements OnInit {
 
   @ViewChild('modal') modal: ModalComponent;
 
@@ -35,8 +35,11 @@ export class BoardPage {
     private actionSheetController: ActionSheetController
   ) { }
 
-  ionViewWillEnter(): void {
+  ngOnInit(): void {
     this.initOptions();
+  }
+
+  ionViewWillEnter(): void {
     this.getAllLists();
   }
 
@@ -71,10 +74,10 @@ export class BoardPage {
 
     this.deleteListModalOptions = {
       icon: 'trash-outline',
-      title: this.translocoService.translate('modal.removeFromBoardHeader'),
-      description: this.translocoService.translate('modal.removeFromBoardBody'),
+      title: 'removeFromBoardHeader',
+      description: 'removeFromBoardBody',
       buttonColor: 'danger',
-      buttonName: this.translocoService.translate('buttons.delete'),
+      buttonName: 'delete',
       command: () => this.onClickRemoveListFromBoard()
     };
   }
