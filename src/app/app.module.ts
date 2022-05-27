@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { ComponentsModule } from './shared/modules/components.module';
+import { IonicStorageModule } from '@ionic/storage-angular';
+import { databaseName } from 'src/assets/constants/my-game-library.constants';
 
 @NgModule({
   declarations: [AppComponent],
@@ -16,6 +18,7 @@ import { ComponentsModule } from './shared/modules/components.module';
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
+    IonicStorageModule.forRoot({ name: databaseName }),
     AppRoutingModule,
     HttpClientModule,
     TranslocoRootModule,

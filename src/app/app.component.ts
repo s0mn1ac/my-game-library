@@ -38,8 +38,9 @@ export class AppComponent implements OnInit, OnDestroy {
     this.darkMode$?.unsubscribe();
   }
 
-  private getStoredData(): void {
-    let userData: UserData = JSON.parse(localStorage.getItem(myGameLibraryStorageItem));
+  private async getStoredData(): Promise<void> {
+    await this.storageService.initStorage();
+    let userData: UserData = await this.storageService.retrieveUserData();
     if (userData === null) {
       this.storageService.userData = new UserData();
       const prefersDark: MediaQueryList = window.matchMedia('(prefers-color-scheme: dark)');

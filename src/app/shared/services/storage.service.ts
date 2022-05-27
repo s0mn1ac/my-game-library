@@ -5,15 +5,23 @@ import { Game } from '../models/game.model';
 import { List } from '../models/list.model';
 import { UserData } from '../models/user-data.model';
 import { difference } from 'lodash';
-import { Subject } from 'rxjs';
+import { Storage } from '@ionic/storage-angular';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class StorageService {
 
+  private _storage: Storage;
+
   private _userData: UserData;
-  private _userData$ = new Subject<UserData>();
+
+  constructor(
+    private storage: Storage
+  ) { }
+
+  // ---- STORAGE --------------------------------------------------------------------------------------------------------------------------
 
   get userData() {
     return this._userData;
@@ -21,11 +29,19 @@ export class StorageService {
 
   set userData(userData: UserData) {
     this._userData = userData;
-    this.updateUserData();
+    this.storeUserData();
   }
 
-  public updateUserData(): void {
-    localStorage.setItem(myGameLibraryStorageItem, JSON.stringify(this._userData));
+  public async initStorage(): Promise<void> {
+    this._storage = await this.storage.create();
+  }
+
+  public async storeUserData(): Promise<void> {
+    await this._storage.set(myGameLibraryStorageItem, this._userData);
+  }
+
+  public async retrieveUserData(): Promise<UserData> {
+    return await this._storage.get(myGameLibraryStorageItem);
   }
 
   // ---- LISTS ----------------------------------------------------------------------------------------------------------------------------
@@ -40,21 +56,21 @@ export class StorageService {
 
   public addNewList(newList: List): void {
     this._userData.lists.push(newList);
-    this.updateUserData();
+    this.storeUserData();
   }
 
   public modifyList(id: number, item: string, value: any): void {
     const foundList: List = this._userData.lists.find((list: List) => list.id === id);
     if (foundList !== null) {
       foundList[item] = value;
-      this.updateUserData();
+      this.storeUserData();
     }
   }
 
   public deleteList(id: number): void {
     const lists: List[] = this._userData.lists.filter((list: List) => list.id !== id);
     this._userData.lists = lists;
-    this.updateUserData();
+    this.storeUserData();
   }
 
   // ---- GAMES ----------------------------------------------------------------------------------------------------------------------------
@@ -77,14 +93,14 @@ export class StorageService {
     if (foundGame === undefined) {
       this._userData.games.push(newGame);
     }
-    this.updateUserData();
+    this.storeUserData();
   }
 
   public modifyGame(id: number, item: string, value: any): void {
     const foundGame: Game = this._userData.games.find((game: Game) => game.id === id);
     if (foundGame !== null) {
       foundGame[item] = value;
-      this.updateUserData();
+      this.storeUserData();
     }
   }
 
@@ -93,7 +109,7 @@ export class StorageService {
     if (foundList !== null) {
       const availableGamesIds: number[] = difference(foundList.games, gamesIds);
       foundList.games = availableGamesIds;
-      this.updateUserData();
+      this.storeUserData();
     }
   }
 
