@@ -17,6 +17,26 @@
       </ion-item>
 
     </ion-list>
+
+    <ion-list>
+
+      <ion-list-header> {{ t('settings.appLanguage') }} </ion-list-header>
+  
+      <ion-radio-group name="language" [value]="languageSelected" (ionChange)="onChangeLanguage($event)">
+  
+        <ion-item lines="full">
+          <ion-label> {{ t('settings.languages.spanish') }} </ion-label>
+          <ion-radio value="es"></ion-radio>
+        </ion-item>
+        
+        <ion-item lines="full">
+          <ion-label> {{ t('settings.languages.english') }} </ion-label>
+          <ion-radio value="en"></ion-radio>
+        </ion-item>
+  
+      </ion-radio-group>
+  
+    </ion-list>
   
   </ion-content>
 

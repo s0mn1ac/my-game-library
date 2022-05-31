@@ -63,7 +63,12 @@
     "settings": {
         "title": "Settings",
         "dark": "Dark mode",
-        "light": "Light mode"
+        "light": "Light mode",
+        "appLanguage": "Language",
+        "languages": {
+            "spanish": "Spanish",
+            "english": "English"
+        }
     },
 
     "game": {
