@@ -86,22 +86,22 @@
 
         <div class="status-bar-second-row">
 
-          <ion-slides>
+          <swiper>
 
-            <ion-slide *ngFor="let note of game?.notes; let i = index" (click)="onClickShowNote(note, i)">
-              <div class="slide">
+            <ng-template swiperSlide *ngFor="let note of game?.notes; let i = index">
+              <div class="slide" (click)="onClickShowNote(note, i)">
                 <p> {{ note }} </p>
               </div>
-            </ion-slide>
+            </ng-template>
 
-            <ion-slide (click)="onClickShowNote()">
-              <div class="slide add-slide">
+            <ng-template swiperSlide>
+              <div class="slide add-slide" (click)="onClickShowNote()">
                 <ion-icon color="warning" name="add"></ion-icon>
                 <ion-label color="warning"> {{ t('game.addNote') }} </ion-label>
               </div>
-            </ion-slide>
+            </ng-template>
 
-          </ion-slides>
+          </swiper>
 
         </div>
         

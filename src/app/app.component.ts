@@ -27,6 +27,7 @@ export class AppComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
+    console.log('🎮 Powered by RAWG: https://rawg.io/apidocs');
     this.initSubscriptions();
     this.getStoredData();
   }

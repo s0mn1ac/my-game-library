@@ -14,6 +14,10 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
+/* Swiper CSS files */
+@import '~swiper/scss';
+@import '~@ionic/angular/css/ionic-swiper';
+
 /* Custom CSS files */
 @import "./assets/scss/action-sheet.scss";
 @import "./assets/scss/alert.scss";
