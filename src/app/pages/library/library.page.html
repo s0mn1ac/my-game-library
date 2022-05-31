@@ -36,10 +36,10 @@
     </div>
 
     <app-empty-screen *ngIf="!hasDataToShow && !isLoading"
-        [icon]="'search-outline'"
-        [title]="t('emptyScreen.libraryTitle')"
-        [description]="t('emptyScreen.libraryDescription')"
-        [showButton]="false">
+      [icon]="'search-outline'"
+      [title]="t('emptyScreen.libraryTitle')"
+      [description]="t('emptyScreen.libraryDescription')"
+      [showButton]="false">
     </app-empty-screen>
   
     <ion-refresher slot="fixed" (ionRefresh)="onRefresh($event)" *ngIf="hasDataToShow">
