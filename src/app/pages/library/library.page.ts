@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ActionSheetController, AlertController, IonSearchbar } from '@ionic/angular';
 import { TranslocoService } from '@ngneat/transloco';
+import { GameCardComponent } from 'src/app/components/game-card/game-card.component';
 import { Game } from 'src/app/shared/models/game.model';
 import { GamesResponseData } from 'src/app/shared/models/games-response-data.model';
 import { List } from 'src/app/shared/models/list.model';
@@ -23,6 +24,7 @@ export class LibraryPage implements OnInit {
   public isSearchbarVisible: boolean;
   public hasDataToShow: boolean;
   public isLoading: boolean;
+  public isAddingGameToList: boolean;
 
   public searchValue: string;
 
@@ -77,12 +79,12 @@ export class LibraryPage implements OnInit {
     event.target.disabled = this.nextUrl == null;
   }
 
-  public async onClickAddToListButton(game: Game): Promise<void> {
+  public async onClickAddToListButton(game: Game, gameCard: GameCardComponent): Promise<void> {
     this.actionSheet = await this.actionSheetController.create({
       header: this.translocoService.translate('modal.addToListHeader'),
       subHeader: this.translocoService.translate('modal.addToListBody'),
       buttons: this.lists !== undefined && this.lists?.length > 0
-        ? this.lists?.map((list: List) => ({ text: list?.name, handler: () => this.addGameToList(game.id, list.id) }))
+        ? this.lists?.map((list: List) => ({ text: list?.name, handler: () => this.addGameToList(game.id, list.id, gameCard) }))
         : [{ text: this.translocoService.translate('library.createList'), handler: () => this.onClickAddNewList() }]
     });
     await this.actionSheet.present();
@@ -140,10 +142,12 @@ export class LibraryPage implements OnInit {
     this.storageService.addNewList({ id: new Date().getTime(), name, isOnBoard: false, games: [] });
   }
 
-  private async addGameToList(gameId: number, listId: number): Promise<void> {
+  private async addGameToList(gameId: number, listId: number, gameCard: GameCardComponent): Promise<void> {
+    gameCard.setLoadingStatus(true);
     await this.actionSheet?.dismiss();
-    const game: Game = await this.gameService.getGameInfo(gameId); // TODO: Puede tardar un poco...
+    const game: Game = await this.gameService.getGameInfo(gameId);
     await this.storageService.addNewGame(listId, game);
+    gameCard.setLoadingStatus(false);
   }
 
 }

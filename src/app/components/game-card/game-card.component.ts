@@ -21,6 +21,8 @@ export class GameCardComponent {
 
   public statusEnum: typeof StatusEnum = StatusEnum;
 
+  public isLoading = false;
+
   constructor(
     private router: Router,
     private storageService: StorageService
@@ -38,6 +40,10 @@ export class GameCardComponent {
   public onClickAddToListButton(event: any, game: Game): void {
     event.stopPropagation();
     this.addToListEventEmitter.emit(game);
+  }
+
+  public setLoadingStatus(value: boolean): void {
+    this.isLoading = value;
   }
 
 }
