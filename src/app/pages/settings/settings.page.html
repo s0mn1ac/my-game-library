@@ -8,7 +8,7 @@
   
   <ion-content>
     
-    <ion-list>
+    <!-- <ion-list>
       
       <ion-item lines="full">
         <ion-icon slot="start" [name]="isDarkModeEnabled ? 'moon-outline' : 'sunny-outline'"></ion-icon>
@@ -16,20 +16,40 @@
         <ion-toggle id="themeToggle" slot="end" [(ngModel)]="isDarkModeEnabled" (ionChange)="onChangeDarkMode()"></ion-toggle>
       </ion-item>
 
+    </ion-list> -->
+
+    <ion-list mode="ios">
+
+      <ion-list-header> {{ t('settings.appTheme') }} </ion-list-header>
+  
+      <ion-radio-group name="theme" [value]="isDarkModeEnabled" (ionChange)="onChangeDarkMode($event)">
+  
+        <ion-item lines="none">
+          <ion-label> {{ t('settings.light') }} </ion-label>
+          <ion-radio [value]="false"></ion-radio>
+        </ion-item>
+        
+        <ion-item lines="none">
+          <ion-label> {{ t('settings.dark') }} </ion-label>
+          <ion-radio [value]="true"></ion-radio>
+        </ion-item>
+  
+      </ion-radio-group>
+  
     </ion-list>
 
-    <ion-list>
+    <ion-list mode="ios">
 
       <ion-list-header> {{ t('settings.appLanguage') }} </ion-list-header>
   
       <ion-radio-group name="language" [value]="languageSelected" (ionChange)="onChangeLanguage($event)">
   
-        <ion-item lines="full">
+        <ion-item lines="none">
           <ion-label> {{ t('settings.languages.spanish') }} </ion-label>
           <ion-radio value="es"></ion-radio>
         </ion-item>
         
-        <ion-item lines="full">
+        <ion-item lines="none">
           <ion-label> {{ t('settings.languages.english') }} </ion-label>
           <ion-radio value="en"></ion-radio>
         </ion-item>

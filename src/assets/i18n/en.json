@@ -62,8 +62,9 @@
 
     "settings": {
         "title": "Settings",
-        "dark": "Dark mode",
-        "light": "Light mode",
+        "dark": "Dark",
+        "light": "Light",
+        "appTheme": "Theme",
         "appLanguage": "Language",
         "languages": {
             "spanish": "Spanish",

@@ -25,8 +25,8 @@ export class SettingsPage implements OnInit {
     this.setInitialData();
   }
 
-  public onChangeDarkMode(): void {
-    this.darkModeService.updateDarkMode(this.isDarkModeEnabled);
+  public onChangeDarkMode(event: any): void {
+    this.darkModeService.updateDarkMode(event?.detail?.value);
   }
 
   public onChangeLanguage(event: any): void {

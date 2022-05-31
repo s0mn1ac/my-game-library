@@ -62,8 +62,9 @@
 
     "settings": {
         "title": "Ajustes",
-        "dark": "Modo oscuro",
-        "light": "Modo claro",
+        "dark": "Oscuro",
+        "light": "Claro",
+        "appTheme": "Tema",
         "appLanguage": "Idioma",
         "languages": {
             "spanish": "Español",
