@@ -8,6 +8,7 @@ import { Device, GetLanguageCodeResult } from '@capacitor/device';
 import { isPlatform } from '@ionic/angular';
 import { LanguageService } from './shared/services/language.service';
 import { TranslocoService } from '@ngneat/transloco';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -20,6 +21,7 @@ export class AppComponent implements OnInit, OnDestroy {
   private language$: Subscription;
 
   constructor(
+    private router: Router,
     private translocoService: TranslocoService,
     private storageService: StorageService,
     private darkModeService: DarkModeService,
@@ -56,6 +58,7 @@ export class AppComponent implements OnInit, OnDestroy {
       userData = new UserData();
       userData.darkMode = prefersDark.matches;
       userData.language = language.value.startsWith('es') ? 'es' : 'en';
+      this.router.navigate(['welcome']);
     }
     this.storageService.userData = userData;
     this.darkModeService.updateDarkMode(userData.darkMode);

@@ -1,11 +1,13 @@
 {
+    "appName": "Gamery",
 
     "buttons": {
         "delete": "Eliminar",
         "addToList": "Añadir a la lista...",
         "cancel": "Cancelar",
         "create": "Crear",
-        "change": "Cambiar"
+        "change": "Cambiar",
+        "continue": "Continuar"
     },
 
     "emptyScreen": {
@@ -33,6 +35,42 @@
         "deleteListBody": "Ten presente que este cambio es irreversible. En cuanto lo hagas, ¡no habrá vuelta a trás!",
         "deleteGamesHeader": "¿Quieres eliminar los juegos seleccionados?",
         "deleteGamesBody": "Ten presente que este cambio es irreversible. En cuanto lo hagas, ¡no habrá vuelta a trás!"
+    },
+
+    "welcome": {
+        "pages": {
+            "welcomePage": {
+                "title": "¡Hola!",
+                "contentFirstPart": "Te doy la bienvenida a",
+                "contentSecondPart": "Tu biblioteca de juegos completamente personalizable"
+            },
+            "gameInformation": {
+                "title": "Encuentra tu próximo juego",
+                "contentFirstPart": "Desde la sección",
+                "contentSecondPart": "Biblioteca",
+                "contentThirdPart": "podrás consultar una de las mayores bases de datos de videojuegos del mundo y acceder a toda la información que necesites",
+                "contentFourthPart": "Con la tecnología de",
+                "contentFifthPart": "RAWG"
+            },
+            "createYourOwnLists": {
+                "title": "Crea tus propias listas",
+                "contentFirstPart": "Puedes crear todas las",
+                "contentSecondPart": "Listas",
+                "contentThirdPart": "que necesites y añadirles todos los juegos que se te ocurran",
+                "contentFourthPart": "¡Organízate como prefieras!"
+            },
+            "addToBoard": {
+                "title": "Añádela al tablón",
+                "contentFirstPart": "¿Tienes una lista favorita?",
+                "contentSecondPart": "Agrégala al",
+                "contentThirdPart": "Tablón",
+                "contentFourthPart": "y podrás consultarla de un vistazo siempre que quieras"
+            },
+            "allSet": {
+                "title": "¿Todo listo?",
+                "contentFirstPart": "Comienza a darle vida a tu biblioteca de juegos"
+            }
+        }
     },
 
     "board": {

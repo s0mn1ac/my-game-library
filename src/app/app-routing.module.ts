@@ -7,6 +7,10 @@ const routes: Routes = [
     loadChildren: () => import('./footer/footer.module').then(m => m.FooterPageModule)
   },
   {
+    path: 'welcome',
+    loadChildren: () => import('./pages/welcome/welcome.module').then( m => m.WelcomePageModule)
+  },
+  {
     path: 'game',
     loadChildren: () => import('./pages/game/game.module').then( m => m.GamePageModule),
   }

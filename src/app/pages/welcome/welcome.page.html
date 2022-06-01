@@ -1,0 +1,98 @@
+<ng-container *transloco="let t">
+
+  <ion-content>
+
+    <div class="welcome-container">
+
+      <swiper [pagination]="true">
+  
+        <ng-template swiperSlide>
+          <div class="slide">
+            <div class="image-container">
+              <img src="https://ionicframework.com/docs/demos/api/slides/slide-1.png">
+            </div>
+            <div class="content-container">
+              <h1> {{ t('welcome.pages.welcomePage.title') }} </h1>
+              <p>
+                <span> {{ t('welcome.pages.welcomePage.contentFirstPart') }} </span>
+                <span class="bold-primary"> {{ t('appName') }} </span>
+              </p>
+              <p> {{ t('welcome.pages.welcomePage.contentSecondPart') }} </p>
+            </div>
+          </div>
+        </ng-template>
+        
+        <ng-template swiperSlide>
+          <div class="slide">
+            <div class="image-container">
+              <img src="https://ionicframework.com/docs/demos/api/slides/slide-1.png">
+            </div>
+            <div class="content-container">
+              <h1> {{ t('welcome.pages.gameInformation.title') }} </h1>
+              <p>
+                <span> {{ t('welcome.pages.gameInformation.contentFirstPart') }} </span>
+                <span class="bold-primary"> {{ t('welcome.pages.gameInformation.contentSecondPart') }} </span>
+                <span> {{ t('welcome.pages.gameInformation.contentThirdPart') }} </span>
+              </p>
+              <p class="second-paragraph">
+                <span> {{ t('welcome.pages.gameInformation.contentFourthPart') }} </span>
+                <span class="rawg"> {{ t('welcome.pages.gameInformation.contentFifthPart') }} </span>
+              </p>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="slide">
+            <div class="image-container">
+              <img src="https://ionicframework.com/docs/demos/api/slides/slide-1.png">
+            </div>
+            <div class="content-container">
+              <h1> {{ t('welcome.pages.createYourOwnLists.title') }} </h1>
+              <p>
+                <span> {{ t('welcome.pages.createYourOwnLists.contentFirstPart') }} </span>
+                <span class="bold-primary"> {{ t('welcome.pages.createYourOwnLists.contentSecondPart') }} </span>
+                <span> {{ t('welcome.pages.createYourOwnLists.contentThirdPart') }} </span>
+              </p>
+              <p> {{ t('welcome.pages.createYourOwnLists.contentFourthPart') }} </p>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="slide">
+            <div class="image-container">
+              <img src="https://ionicframework.com/docs/demos/api/slides/slide-1.png">
+            </div>
+            <div class="content-container">
+              <h1> {{ t('welcome.pages.addToBoard.title') }} </h1>
+              <p> {{ t('welcome.pages.addToBoard.contentFirstPart') }} </p>
+              <p>
+                <span> {{ t('welcome.pages.addToBoard.contentSecondPart') }} </span>
+                <span class="bold-primary"> {{ t('welcome.pages.addToBoard.contentThirdPart') }} </span>
+                <span> {{ t('welcome.pages.addToBoard.contentFourthPart') }} </span>
+              </p>
+            </div>
+          </div>
+        </ng-template>
+
+        <ng-template swiperSlide>
+          <div class="slide">
+            <div class="image-container">
+              <img src="https://ionicframework.com/docs/demos/api/slides/slide-1.png">
+            </div>
+            <div class="content-container">
+              <h1> {{ t('welcome.pages.allSet.title') }} </h1>
+              <p> {{ t('welcome.pages.allSet.contentFirstPart') }} </p>
+              <ion-button routerLink="/board" mode="ios" expand="block"> {{ t('buttons.continue') }} </ion-button>
+            </div>
+          </div>
+        </ng-template>
+  
+      </swiper>
+
+    </div>
+
+  </ion-content>
+
+</ng-container>
