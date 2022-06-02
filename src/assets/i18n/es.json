@@ -117,8 +117,9 @@
 
     "support": {
         "title": "¿Te gusta la aplicación?",
+        "donateWithPaypal": "Dona a través de PayPal",
         "firstParagraph": "No te olvides de puntuarla en tu tienda de aplicaciones preferida. Una buena puntuación me motiva a seguir con el desarrollo.",
-        "secondParagraph": "Si lo deseas, también puedes apoyar al desarrollo invitándome haciendo una donación a través de PayPal. ¡Cualquier ayuda es bienvenida!"
+        "secondParagraph": "Si lo deseas, también puedes apoyar al desarrollo haciendo una donación a través de PayPal. ¡Cualquier ayuda es bienvenida!"
     },
 
     "legal": {

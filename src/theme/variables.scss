@@ -63,6 +63,13 @@
   --ion-color-light-shade: #d7d8da;
   --ion-color-light-tint: #f5f6f9;
 
+  --ion-color-paypal: #FCBB32;
+	--ion-color-paypal-rgb: 252,187,50;
+	--ion-color-paypal-contrast: #ffffff;
+	--ion-color-paypal-contrast-rgb: 255,255,255;
+	--ion-color-paypal-shade: #dea52c;
+	--ion-color-paypal-tint: #fcc247;
+
   --shadow-low: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   --shadow-medium: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);
   --shadow-high:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -145,6 +152,13 @@ body.dark {
   --ion-color-light-shade: #1e2023;
   --ion-color-light-tint: #383a3e;
 
+  --ion-color-paypal: #FCBB32;
+	--ion-color-paypal-rgb: 252,187,50;
+	--ion-color-paypal-contrast: #ffffff;
+	--ion-color-paypal-contrast-rgb: 255,255,255;
+	--ion-color-paypal-shade: #dea52c;
+	--ion-color-paypal-tint: #fcc247;
+
   --shadow-low: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
   --shadow-medium: 0 3px 5px rgba(0,0,0,0.16), 0 3px 5px rgba(0,0,0,0.23);
   --shadow-high:  0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
@@ -188,4 +202,22 @@ body.dark {
   --ion-color-step-950: #f2f2f2;
 
   --ion-item-background: #000000;
+}
+
+body.paypal {
+  --ion-color-primary: #FCBB32 !important;
+--ion-color-primary-rgb: 252,187,50 !important;
+--ion-color-primary-contrast: #ffffff !important;
+--ion-color-primary-contrast-rgb: 255,255,255 !important;
+--ion-color-primary-shade: #dea52c !important;
+--ion-color-primary-tint: #fcc247 !important;
+}
+
+.ion-color-paypal {
+  --ion-color-base: var(--ion-color-paypal) !important;
+  --ion-color-base-rgb: var(--ion-color-paypal-rgb) !important;
+  --ion-color-contrast: var(--ion-color-paypal-contrast) !important;
+  --ion-color-contrast-rgb: var(--ion-color-paypal-contrast-rgb) !important;
+  --ion-color-shade: var(--ion-color-paypal-shade) !important;
+  --ion-color-tint: var(--ion-color-paypal-tint) !important;
 }

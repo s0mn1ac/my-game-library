@@ -115,8 +115,9 @@
         }
     },
 
-    "doYouLikeTheApp": {
+    "support": {
         "title": "Do you like the app?",
+        "donateWithPaypal": "Donate with PayPal",
         "firstParagraph": "Don't forget to rate it on your favorite app store. A good rating motivates me to continue development.",
         "secondParagraph": "If you wish, you can also support the development by making a donation through PayPal. Any help is welcome!"
     },

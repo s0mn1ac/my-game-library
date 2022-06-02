@@ -1,9 +1,28 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>support</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ng-container *transloco="let t">
 
-<ion-content>
+  <ion-content>
 
-</ion-content>
+    <ion-fab vertical="top" horizontal="start" slot="fixed">
+      <ion-fab-button size="small" color="light">
+        <ion-back-button defaultHref="/settings" icon="close" mode="md"></ion-back-button>
+      </ion-fab-button>
+    </ion-fab>
+
+    <div class="column-container">
+
+      <h2> {{ t('support.title') }} </h2>
+
+      <ion-label> {{ t('support.firstParagraph') }}  </ion-label>
+
+      <ion-label> {{ t('support.secondParagraph') }}  </ion-label>
+
+      <ion-button mode="ios" expand="block" color="paypal" (click)="onClickOpenUrl(paypalUrl)">
+        <ion-icon slot="start" name="logo-paypal"></ion-icon>
+        {{ t('support.donateWithPaypal') }}
+      </ion-button>
+
+    </div>
+
+  </ion-content>
+
+</ng-container>
