@@ -60,7 +60,6 @@ export class AppComponent implements OnInit, OnDestroy {
       userData.language = language.value.startsWith('es') ? 'es' : 'en';
       this.router.navigate(['welcome']);
     }
-    userData.language = 'es';
     this.storageService.userData = userData;
     this.darkModeService.updateDarkMode(userData.darkMode);
     this.languageService.updateLanguage(userData.language);
