@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UserData } from 'src/app/shared/models/user-data.model';
 import { DarkModeService } from 'src/app/shared/services/dark-mode.service';
 import { LanguageService } from 'src/app/shared/services/language.service';
