@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { TranslocoRootModule } from './transloco-root.module';
 import { ComponentsModule } from './shared/modules/components.module';
 import { IonicStorageModule } from '@ionic/storage-angular';
-import { databaseName } from 'src/assets/constants/my-game-library.constants';
+import { databaseName } from 'src/assets/constants/gamery.constants';
 
 @NgModule({
   declarations: [AppComponent],

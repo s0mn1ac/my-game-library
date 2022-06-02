@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
-import { myGameLibraryStorageItem } from 'src/assets/constants/my-game-library.constants';
+import { myGameLibraryStorageItem } from 'src/assets/constants/gamery.constants';
 import { Game } from '../models/game.model';
 import { List } from '../models/list.model';
 import { UserData } from '../models/user-data.model';
