@@ -11,14 +11,13 @@ div.welcome-container {
             height: 100%;
             width: 100%;
             padding: 2rem;
-            // background-color: var(--ion-card-background);
 
             div.image-container {
                 display: flex;
                 flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                flex: 1;
+                height: 50vh;
             }
 
             div.content-container {
@@ -26,7 +25,8 @@ div.welcome-container {
                 flex-direction: column;
                 justify-content: flex-start;
                 align-items: center;
-                flex: 1;
+                height: 50vh;
+                margin-top: 2rem;
 
                 p {
                     margin: 5px;

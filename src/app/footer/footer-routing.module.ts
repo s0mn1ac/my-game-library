@@ -17,7 +17,7 @@ const routes: Routes = [
       },
       {
         path: 'lists',
-        loadChildren: () => import('../pages/lists/lists.module').then(m => m.ListsPageModule)
+        loadChildren: () => import('../pages/lists/lists.module').then(m => m.ListsPageModule),
       },
       {
         path: 'settings',
