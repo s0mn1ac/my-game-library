@@ -1,6 +1,6 @@
 /* eslint-disable no-underscore-dangle */
 import { Injectable } from '@angular/core';
-import { myGameLibraryStorageItem } from 'src/assets/constants/gamery.constants';
+import { gameryStorageItem } from 'src/assets/constants/gamery.constants';
 import { Game } from '../models/game.model';
 import { List } from '../models/list.model';
 import { UserData } from '../models/user-data.model';
@@ -37,11 +37,11 @@ export class StorageService {
   }
 
   public async storeUserData(): Promise<void> {
-    await this._storage.set(myGameLibraryStorageItem, this._userData);
+    await this._storage.set(gameryStorageItem, this._userData);
   }
 
   public async retrieveUserData(): Promise<UserData> {
-    return await this._storage.get(myGameLibraryStorageItem);
+    return await this._storage.get(gameryStorageItem);
   }
 
   // ---- LISTS ----------------------------------------------------------------------------------------------------------------------------

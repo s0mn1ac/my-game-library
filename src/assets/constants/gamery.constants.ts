@@ -1,9 +1,9 @@
-export const databaseName = '__my-game-library-db';
+export const databaseName = '__gamery-db';
 
 export const apiURL = 'https://api.rawg.io/api';
 export const apiKey = '?key=f5b9bcd495c6417d948da840a50adc5a';
 
-export const myGameLibraryStorageItem = 'my-game-library';
+export const gameryStorageItem = 'gamery';
 
 export const boardTitle = 'board';
 export const boardIconFilled = 'grid';
